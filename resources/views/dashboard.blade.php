@@ -147,9 +147,11 @@
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
+                                            <!-- <th>Student ID</th> -->
+                                            <th>First Name</th>
+                                            <!-- <th>Middle Name</th>   
+                                            <th>Last Name</th> -->
+                                            <th>Course</th>
                                             <th>Age</th>
                                             <th>Start date</th>
                                             <th>Salary</th>
