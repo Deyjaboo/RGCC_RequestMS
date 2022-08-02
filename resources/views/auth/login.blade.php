@@ -47,5 +47,29 @@
 		#error{
 			color: red;
 		}
+
+		.logo{
+    width:190px;
+    height:220px;
+}
+
+@media screen and (max-width: 600px) {
+
+    .logo{
+		width:150px;
+		height:180px;
+	}
+
+	.button{
+		font-size: 8px;
+		padding: 8px 5px;
+	}
+
+	.well{
+		font-size: 12px;
+}
+	}
+
+
 	</style>
 </html>

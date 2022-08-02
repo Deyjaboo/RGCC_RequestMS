@@ -99,7 +99,7 @@
 
 </section>
     <section class="home">
-        <div class="text">Online Document Request System</div>
+        <div class="text">Claimed Documents</div>
         <!-- <h5 class="add">Dashboard</h5> -->
         <div class="row">
        
@@ -143,19 +143,15 @@
 	</div>
         </div>
       <br>
-  <h5 class="add">Enrolled Student</h5>
-
     <div class="wrapper">
     <div class="form_container">
                         <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <!-- <th>Student ID</th> -->
-                                            <th>First Name</th>
-                                            <!-- <th>Middle Name</th>   
-                                            <th>Last Name</th> -->
-                                            <th>Course</th>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Office</th>
                                             <th>Age</th>
                                             <th>Start date</th>
                                             <th>Salary</th>
