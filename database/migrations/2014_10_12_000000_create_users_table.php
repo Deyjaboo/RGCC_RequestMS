@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('role');
+            $table->string('cp_num');
             $table->rememberToken();
             $table->timestamps();
         });

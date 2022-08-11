@@ -8,7 +8,13 @@
     <link rel="stylesheet" href="css/dashboard.css">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <title>Add User</title>
-</head>
+    <!----======== Bootstrap CSS ======== -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+   <!----======== Bootstrap JS ======== -->
+   <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+  </head>
 <style>
     .home .add{
     font-size: 20px;
@@ -84,9 +90,9 @@ body{
 }
 
 
-.btn input[type="submit"]{
-  background: #b30000;
-  border: 1px solid #1598d4;
+#submit{
+  background: rgba(175, 0, 0, 0.95);
+  border: 1px solid white;
   padding: 10px;
   width: 100%;
   font-size: 16px;
@@ -94,6 +100,24 @@ body{
   border-radius: 3px;
   cursor: pointer;
   color: #fff;
+}
+#submit:hover {
+  background-color: rgba(195, 0, 0, 0.95); /* Green */
+  color: white;
+}
+#batch_add{
+        background: rgba(28, 106, 36, 0.8);
+        border: 1px solid white;
+        width: 40%;
+        height:  110%;
+        font-size: 16px;
+        cursor: pointer;
+        color: #fff;
+        float: right;
+}
+#batch_add:hover {
+  background-color: rgba(33, 122, 42, 0.8); /* Green */
+  color: white;
 }
 </style>
 <body>
@@ -179,7 +203,17 @@ body{
 
   <div class="wrapper">
     <div class="form_container">
-      <h5><span class="text-danger">*</span><label><i>Required</i></label></h5>
+
+    <div class="form_wrap fullname">
+      <div class="form_item">
+        <h5><label><span class="text-danger">*</span><i>Required</i></label></h5>
+      </div>
+
+      <!-- <div class="form_item">
+        <button id="batch_add" data-toggle="modal" data-target="#exampleModalCenter"><i class='bx bx-user-plus'></i> Batch Add</button>
+      </div> -->
+    </div>
+        
         <br>
        @if(session()->has('message'))
             <div class="alert alert-success">
@@ -221,6 +255,14 @@ body{
       <input type="text"  name="suffix" id="suffix" class="form-control" placeholder="Suffix">
     </div>
     <div class="form_item">
+      <label>Mobile Number<span class="text-danger"></span></label>
+      <input type="text"  name="CP_number" id="CP_number" class="form-control" placeholder="+639......" required>
+    </div>
+</div>
+
+<div class="form_wrap fullname">
+    
+    <div class="form_item">
       <label>Course<span class="text-danger">*</span></label>
       <select class="form-control col-12" name="course" id="course" required>
           <option value="" selected="selected" disabled="disabled">Course</option>
@@ -229,42 +271,53 @@ body{
       </select>      
     </div>
 </div>
-
-<!-- <div class="form_wrap fullname">
-  <div class="form_item">
-    <label>User Name<span class="text-danger">*</span></label>
-    <input type="text" name="email" id="email" class="form-control" placeholder="Enter User Name" required>
-  </div>
-  <div class="form_item">
-    <label>Password<span class="text-danger"></span></label>
-    <input type="password" name="password" id="password" class="form-control" placeholder="Enter Password" required>
-  </div>
-</div> -->
-
-  <div class="btn">
-    <input type="submit" value="Submit">
+  
+    <button id="submit" type="submit" value="Submit">Submit</button>
      <!-- <button type="submit">Submit</button> -->
-  </div>
-  <!-- <script>
-  if(document.getElementById("Mname").value.length == 0){
-    document.getElementById("Mname").value = " ";
-  }
-  if(document.getElementById("suffix").value.length == 0){
-    document.getElementById("suffix").value = " ";
-  }
-</script> -->
+ 
   </form>
  </div>
 </div>
 
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Launch demo modal
+</button> -->
 
+<!-- Modal start -->
+<!-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      
+      <form action="#" method="post" enctype="multipart/form-data">
+				{{ csrf_field() }}
+					<div class="modal-body">
+						<p>Select Excel File to Import:</p>
+				    <input type="file" name="select_file">
+					</div>
+				</form>
+
+      </div>
+      <div class="modal-footer">
+          <input type="button" class="btn btn-danger" data-dismiss="modal" value="Cancel">
+					<input type="submit" class="btn btn-primary" value="Import">
+      </div>
+    </div>
+  </div>
+</div> -->
+<!-- Modal end -->
     </section>
 
 
-
-
     <script>
-        const body = document.querySelector('body'),
+      const body = document.querySelector('body'),
       sidebar = body.querySelector('nav'),
       toggle = body.querySelector(".toggle"),
       searchBtn = body.querySelector(".search-box"),

@@ -168,8 +168,12 @@ body{
 .btn{
   background:#b30000; 
   color:white;
+  border: 1px solid white;
 }
-
+#sub:hover{
+  background-color: rgba(195, 0, 0, 0.95); /* Green */
+  color: white;
+}
 .dat{
         /* width: 150px;  */
   /* margin-left: 300px; */
@@ -289,22 +293,33 @@ ul li a {
 
 <div class="wrapper">
  <div class="form_container">
-
-        <form name="form">
+        
+        
+        
                 <div class="heading">
                   <!-- <img src="images/logo.png" width="60" height="80"> -->
                     <h4 >R.G. de Castro Colleges</h4>
                     <h6 >Bulan Sorsogon</h6>
                 </div>
-
+        @if(session()->has('message'))
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
+            </div>
+        @endif
+        @if(session()->has('message1'))
+            <div class="alert alert-danger">
+                {{ session()->get('message1') }}
+            </div>
+        @endif
        <br>         
-
+  <form action="docu_request" method="post" enctype="multipart/form-data">
+  {{ csrf_field() }}
     <div class="container-fluid"> 
     <center> <h3 >Request Form</h3></center>
-    <div class="dat">
+    <!-- <div class="dat">
         <label for="date">Date:</label>
-        <input type="date" id="date" name="date">
-        </div> 
+        <input type="date" id="date" name="date" required>
+    </div>  -->
 
     <p>May I Request for:</p>
 
@@ -312,7 +327,7 @@ ul li a {
 
         <div class="col-md-6 p-6">
         <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <input class="form-check-input" name="Hon_Dismissal" type="checkbox" value="Dismissal" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">
                 Honorable Dismissal
                 </label>
@@ -320,7 +335,7 @@ ul li a {
         </div>
 
         <div class="col-md-6 p-6">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                <input class="form-check-input" name="TOR" type="checkbox" value="TOR" id="flexCheckChecked">
                 <label class="form-check-label" for="flexCheckChecked">
                 Transcript of Record
                 </label>
@@ -331,7 +346,7 @@ ul li a {
 
         <div class="col-md-6 p-6">
         <div class="form-check">
-                 <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                 <input class="form-check-input" name="SO" type="checkbox" value="Special Order" id="flexCheckChecked">
                 <label class="form-check-label" for="flexCheckChecked">
                 Special Order
                 </label>
@@ -339,7 +354,7 @@ ul li a {
         </div>
 
         <div class="col-md-6 p-6">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+        <input class="form-check-input" name="Form137" type="checkbox" value="Form 137" id="flexCheckChecked">
                 <label class="form-check-label" for="flexCheckChecked">
                  Form 137
                 </label>
@@ -352,7 +367,7 @@ ul li a {
 
         <div class="col-md-6 p-6">
         <div class="form-check">
-                 <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                 <input class="form-check-input" name="Diploma" type="checkbox" value="Diploma" id="flexCheckChecked">
                 <label class="form-check-label" for="flexCheckChecked">
                 Diploma
                 </label>
@@ -360,7 +375,7 @@ ul li a {
         </div>
 
         <div class="col-md-6 p-6">
-                 <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                <input class="form-check-input" name="GoodMoral" type="checkbox" value="Good Moral" id="flexCheckChecked">
                 <label class="form-check-label" for="flexCheckChecked">
                  Good Moral Character
                 </label>
@@ -375,7 +390,7 @@ ul li a {
         <div class="row">
         <div class="col-md-6 p-6">
         <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                <input class="form-check-input" name="UnitEarned" type="checkbox" value="Units Earned" id="flexCheckChecked">
                 <label class="form-check-label" for="flexCheckChecked">
                 Unit Earned
                 </label>
@@ -383,7 +398,7 @@ ul li a {
         </div>
 
         <div class="col-md-6 p-6">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                <input class="form-check-input" name="GWA" type="checkbox" value="GWA" id="flexCheckChecked">
                 <label class="form-check-label" for="flexCheckChecked">
                 General Weighted Average
                 </label>
@@ -393,7 +408,7 @@ ul li a {
         <div class="row">
         <div class="col-md-6 p-6">
         <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                <input class="form-check-input" name="Graduation" type="checkbox" value="Graduation" id="flexCheckChecked">
                 <label class="form-check-label" for="flexCheckChecked">
                 Graduation
                 </label>
@@ -401,7 +416,7 @@ ul li a {
         </div>
 
         <div class="col-md-6 p-6">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                <input class="form-check-input" name="Grades" type="checkbox" value="Grades" id="flexCheckChecked">
                 <label class="form-check-label" for="flexCheckChecked">
                 Grades
                 </label>
@@ -415,21 +430,21 @@ ul li a {
 
         <div class="row">
         <div class="col-md-4 p-4">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                <input class="form-check-input" name="auth_Transcript" type="checkbox" value="Transcript" id="flexCheckChecked">
                 <label class="form-check-label" for="flexCheckChecked">
                 Transcript
                 </label>
         </div>
 
         <div class="col-md-4 p-4">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                <input class="form-check-input" name="auth_SO" type="checkbox" value="Special Order" id="flexCheckChecked">
                 <label class="form-check-label" for="flexCheckChecked">
                 Special Order
                 </label>
         </div>
 
         <div class="col-md-4 p-4">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                <input class="form-check-input"name="auth_Diploma" type="checkbox" value="Diploma" id="flexCheckChecked">
                 <label class="form-check-label" for="flexCheckChecked">
                 Diploma
                 </label>
@@ -441,7 +456,7 @@ ul li a {
         <div class="row">
         <div class="col-md-6 p-6">
         <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                <input class="form-check-input" name="Enroll" type="checkbox" value="Enrollment" id="flexCheckChecked">
                 <label class="form-check-label" for="flexCheckChecked">
                 For Enrolment
                 </label>
@@ -449,7 +464,7 @@ ul li a {
         </div>
 
         <div class="col-md-6 p-6">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                <input class="form-check-input" name="Employ" type="checkbox" value="Employement" id="flexCheckChecked">
                 <label class="form-check-label" for="flexCheckChecked">
                 For Employment
                 </label>
@@ -457,7 +472,7 @@ ul li a {
         </div>
 
         <div class="col-md-6 p-6">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                <input class="form-check-input" name="License_Exam" type="checkbox" value="Licensure Examination" id="flexCheckChecked">
                 <label class="form-check-label" for="flexCheckChecked">
                 For Licensure Examination
                 </label>
@@ -465,8 +480,9 @@ ul li a {
 
         <br>
         <div class="d-grid gap-2">
-      <button class="btn btn-success" type="button">Submit</button>
-    </div>
+      <!-- <button class="btn btn-success" type="submit" id="sub">Submit</button> -->
+      <input type="submit" class="btn btn-primary" id="sub" value="Submit">
+      </div>
 
     </div>
   </form>

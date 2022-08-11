@@ -47,6 +47,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'password' => Hash::make('secret'),
             'role' => 'admin',
+            'cp_num' => '+639',
             'created_at' => now(),
             'updated_at' => now()
         ]);

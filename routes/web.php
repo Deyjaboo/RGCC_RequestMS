@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\DocrequestController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,39 +31,51 @@ Route::get('/', function () {
 //         return view('dashboard');
 //     });
 // });
-
+   Route::get('/sampledash', function () {
+         return view('sampledash');
+     });
 Route::middleware('auth','isAdmin')->group(function () {
-    Route::get('/sampledash', function () {
-        return view('sampledash');
-    });
+    // Route::get('/dashboard', function () {
+    //     return view('dashboard');
+    // });
+    Route::get('dashboard',[UserController::class ,'user_show']);
+  
     Route::get('/Adduser', function () {
         return view('Adduser');
     });
     Route::get('/Transaction', function () {
         return view('Transaction');
     });
+
+    Route::get('/NewRequest', function () {
+        return view('NewRequest');
+    });
+    
+    Route::get('/Unclaimed', function () {
+        return view('Unclaimed');
+    });
+    
+    Route::get('/Claimed', function () {
+        return view('Claimed');
+    });
+
+   
+   
  
 });
- Route::get('/dashboard', function () {
-     return view('dashboard');
- })->middleware(['auth','isAdmin'])->name('dashboard');
+//  Route::get('/dashboard', function () {
+//      return view('dashboard');
+//  })->middleware(['auth','isAdmin'])->name('dashboard');
 
-//   Route::middleware(['auth'])->group(function(){
+   Route::middleware(['auth'])->group(function(){
      Route::get('/UserDash', function () {
        return view('UserDash');
     });
-//  });
 
-Route::get('/NewRequest', function () {
-    return view('NewRequest');
-});
+     // Request Data
+     Route::post('docu_request',[DocrequestController::class ,'store']);
+  });
 
-Route::get('/Unclaimed', function () {
-    return view('Unclaimed');
-});
 
-Route::get('/Claimed', function () {
-    return view('Claimed');
-});
 
 require __DIR__.'/auth.php';
