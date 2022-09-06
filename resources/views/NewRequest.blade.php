@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,400,500,600" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-    <title>Admin Dashboad</title>
+    <title>New Request</title>
 </head>
 
 <body>
@@ -56,19 +56,26 @@
                     
                     </li>
 
-                    <!-- <li class="nav-link">
-                        <a href="Transaction"method="GET">
-                        <i class='bx bx-transfer-alt icon'></i>
-                            <span class="text nav-text">Transaction</span>
+                     <li class="nav-link">
+                        <a href="NewRequest">
+                        <i class='bx bxs-file-plus icon'></i>
+                            <span class="text nav-text">New Request</span>
                         </a>
-                    </li> -->
+                    </li> 
 
-                    <!-- <li class="nav-link">
-                        <a href="#">
-                        <i class='bx bxs-comment-add icon'></i>
-                            <span class="text nav-text">Feedback</span>
+                    <li class="nav-link">
+                        <a href="Claimed"method="GET">
+                        <i class='bx bx-task icon'></i>
+                            <span class="text nav-text">Claimed</span>
                         </a>
-                    </li> -->
+                    </li> 
+
+                    <li class="nav-link">
+                        <a href="Unclaimed">
+                        <i class='bx bxs-file icon'></i>
+                            <span class="text nav-text">Unclaimed </span>
+                        </a>
+                    </li> 
 
                     <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -109,7 +116,7 @@
 			<div class="icon-section">
 				<i class="bx bx-task" aria-hidden="true"></i><br>
 				<small>Claimed Documents</small>
-				<p>11</p>
+				<p>{{$claimed}}</p>
 			</div>
 			<div class="detail-section">
 				<a href="Claimed">More Info </a>
@@ -119,9 +126,9 @@
         <div class="columns">
 		<div class="dashbord dashbord-red">
 			<div class="icon-section">
-				<i class="fa fa-file" aria-hidden="true"></i><br>
+				<i class="bx bxs-file-plus" aria-hidden="true"></i><br>
 				<small>New Request</small>
-				<p> 26</p>
+				<p>{{$new}}</p>
 			</div>
 			<div class="detail-section">
 				<a href="NewRequest" method="GET">More Info </a>
@@ -131,9 +138,9 @@
         <div class="columns">
 		<div class="dashbord dashbord-orange">
 			<div class="icon-section">
-				<i class="fa fa-bell" aria-hidden="true"></i><br>
+				<i class="bx bxs-file" aria-hidden="true"></i><br>
 				<small>Unclaimed Process Document</small>
-				<p>19 New</p>
+				<p>{{$ready}}</p>
 			</div>
 			<div class="detail-section">
 				<a href="Unclaimed">More Info </a>
@@ -150,170 +157,89 @@
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
+                                        <th>ID</th>
+                                            <th>Student ID</th>
                                             <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>Mobile Number</th>
+                                            <th>Course</th>
+                                            <th>Date</th>
+                                            <th>Honorable Dismissal</th>
+                                            <th>Special Order</th>
+                                            <th>Diploma</th>
+                                            <th>Transcript Of Record</th>
+                                            <th>Form137</th>
+                                            <th>Good Moral</th>
+                                            <th>Unit Earned</th>
+                                            <th>Graduation</th>
+                                            <th>GWA</th>
+                                            <th>Grades</th>
+                                            <th>Authenticate Transcript</th>
+                                            <th>Authenticate Special_Order</th>
+                                            <th>Authenticate Diploma</th>
+                                            <th>Purpose</th>
+                                            <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
+                                            <th>ID</th>
+                                            <th>Student ID</th>
                                             <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>Mobile Number</th>
+                                            <th>Course</th>
+                                            <th>Date</th>
+                                            <th>Honorable Dismissal</th>
+                                            <th>Special Order</th>
+                                            <th>Diploma</th>
+                                            <th>Transcript Of Record</th>
+                                            <th>Form137</th>
+                                            <th>Good Moral</th>
+                                            <th>Unit Earned</th>
+                                            <th>Graduation</th>
+                                            <th>GWA</th>
+                                            <th>Grades</th>
+                                            <th>Authenticate Transcript</th>
+                                            <th>Authenticate Special_Order</th>
+                                            <th>Authenticate Diploma</th>
+                                            <th>Purpose</th>
+                                            <th>Status</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
+                                    @foreach($data as $data)
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
+                                            <td>{{$data->id}}</td>
+                                            <td>{{$data->stud_id}}</td>
+                                            <td>{{$data->Name}}</td>
+                                            <td>{{$data->cp}}</td>
+                                            <td>{{$data->Course}}</td>
+                                            <td>{{$data->date}}</td>
+                                            <td id="item">{{$data->HonDismissal}}</td>
+                                            <td id="item">{{$data->Special_Order}}</td>
+                                            <td id="item">{{$data->Diploma}}</td>
+                                            <td id="item">{{$data->TOR}}</td>
+                                            <td id="item">{{$data->Form137}}</td>
+                                            <td id="item">{{$data->GoodMoral}}</td>
+                                            <td id="item">{{$data->UnitEarned}}</td>
+                                            <td id="item">{{$data->Graduation}}</td>
+                                            <td id="item">{{$data->GWA}}</td>
+                                            <td id="item">{{$data->Grades}}</td>
+                                            <td id="item">{{$data->Auth_Transcript}}</td>
+                                            <td id="item">{{$data->Auth_Special_Order}}</td>
+                                            <td id="item">{{$data->Auth_Diploma}}</td>
+                                            <td>{{$data->Purpose}}</td>
+                                            <td>{{$data->Status}}</td>
                                         </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ashton Cox</td>
-                                            <td>Junior Technical Author</td>
-                                            <td>San Francisco</td>
-                                            <td>66</td>
-                                            <td>2009/01/12</td>
-                                            <td>$86,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cedric Kelly</td>
-                                            <td>Senior Javascript Developer</td>
-                                            <td>Edinburgh</td>
-                                            <td>22</td>
-                                            <td>2012/03/29</td>
-                                            <td>$433,060</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Airi Satou</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                            <td>2008/11/28</td>
-                                            <td>$162,700</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Brielle Williamson</td>
-                                            <td>Integration Specialist</td>
-                                            <td>New York</td>
-                                            <td>61</td>
-                                            <td>2012/12/02</td>
-                                            <td>$372,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Herrod Chandler</td>
-                                            <td>Sales Assistant</td>
-                                            <td>San Francisco</td>
-                                            <td>59</td>
-                                            <td>2012/08/06</td>
-                                            <td>$137,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Rhona Davidson</td>
-                                            <td>Integration Specialist</td>
-                                            <td>Tokyo</td>
-                                            <td>55</td>
-                                            <td>2010/10/14</td>
-                                            <td>$327,900</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Colleen Hurst</td>
-                                            <td>Javascript Developer</td>
-                                            <td>San Francisco</td>
-                                            <td>39</td>
-                                            <td>2009/09/15</td>
-                                            <td>$205,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Sonya Frost</td>
-                                            <td>Software Engineer</td>
-                                            <td>Edinburgh</td>
-                                            <td>23</td>
-                                            <td>2008/12/13</td>
-                                            <td>$103,600</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jena Gaines</td>
-                                            <td>Office Manager</td>
-                                            <td>London</td>
-                                            <td>30</td>
-                                            <td>2008/12/19</td>
-                                            <td>$90,560</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Michael Silva</td>
-                                            <td>Marketing Designer</td>
-                                            <td>London</td>
-                                            <td>66</td>
-                                            <td>2012/11/27</td>
-                                            <td>$198,500</td>
-                                        </tr>
-
-
-                                        <tr>
-                                            <td>Timothy Mooney</td>
-                                            <td>Office Manager</td>
-                                            <td>London</td>
-                                            <td>37</td>
-                                            <td>2008/12/11</td>
-                                            <td>$136,200</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jackson Bradshaw</td>
-                                            <td>Director</td>
-                                            <td>New York</td>
-                                            <td>65</td>
-                                            <td>2008/09/26</td>
-                                            <td>$645,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Olivia Liang</td>
-                                            <td>Support Engineer</td>
-                                            <td>Singapore</td>
-                                            <td>64</td>
-                                            <td>2011/02/03</td>
-                                            <td>$234,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bruno Nash</td>
-                                            <td>Software Engineer</td>
-                                            <td>London</td>
-                                            <td>38</td>
-                                            <td>2011/05/03</td>
-                                            <td>$163,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Sakura Yamamoto</td>
-                                            <td>Support Engineer</td>
-                                            <td>Tokyo</td>
-                                            <td>37</td>
-                                            <td>2009/08/19</td>
-                                            <td>$139,575</td>
-                                        </tr>
-
+                                    @endforeach
                                     </tbody>
                                 </table>
 
     </section>
-
+    <style>
+        #item{
+            color: red;
+        }
+    </style>
     <script>
         const body = document.querySelector('body'),
       sidebar = body.querySelector('nav'),

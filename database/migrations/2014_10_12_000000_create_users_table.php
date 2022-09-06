@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('Lname');
             $table->string('suffix');
             $table->string('course');
+            $table->string('year');
             $table->string('email')->unique();
             $table->string('password');
             $table->string('role');

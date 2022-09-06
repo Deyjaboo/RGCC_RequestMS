@@ -55,10 +55,12 @@ Route::middleware('auth','isAdmin')->group(function () {
         return view('Unclaimed');
     });
     
-    Route::get('/Claimed', function () {
-        return view('Claimed');
-    });
-
+    // Route::get('/Claimed', function () {
+    //     return view('Claimed');
+    // });
+    Route::get('NewRequest',[DocrequestController::class ,'new_req']);
+    Route::get('Claimed',[DocrequestController::class ,'claimed']);
+    Route::get('Unclaimed',[DocrequestController::class ,'unclaimed']);
    
    
  
@@ -68,9 +70,14 @@ Route::middleware('auth','isAdmin')->group(function () {
 //  })->middleware(['auth','isAdmin'])->name('dashboard');
 
    Route::middleware(['auth'])->group(function(){
+
      Route::get('/UserDash', function () {
        return view('UserDash');
     });
+
+    Route::get('/UserReq', function () {
+        return view('UserReq');
+     });
 
      // Request Data
      Route::post('docu_request',[DocrequestController::class ,'store']);

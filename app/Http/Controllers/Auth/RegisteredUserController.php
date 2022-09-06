@@ -36,9 +36,10 @@ class RegisteredUserController extends Controller
      
 
         $request->validate([
-            'Fname' => ['required', 'string', 'max:255'],
+            'student_id' => ['required', 'min:7'],
+            'First_Name' => ['required', 'string', 'max:255', 'regex:/^([^0-9]*)$/'],
             // 'Mname' => ['string', 'max:255'],
-            'Lname' => ['required', 'string', 'max:255'],
+            'Last_Name' => ['required', 'string', 'max:255','regex:/^([^0-9]*)$/'],
             // 'email' => ['required', 'string', 'max:255', 'unique:users'],
             // 'password' => ['required'],
         ]);
@@ -53,14 +54,17 @@ class RegisteredUserController extends Controller
             $Mname = $request->Mname;
         }
         $user = User::create([
-            'stud_id'=> $request->stud_id,
-            'Fname'=> $request->Fname,
-            'Mname'=> $Mname,
-            'Lname'=> $request->Lname,
+            'student_id'=> $request->stud_id,
+            'First_Name'=> $request->Fname,
+            'Middle_Name'=> $Mname,
+            'Last_Name'=> $request->Lname,
             'suffix'=> $EXTname,
             'course'=> $request->course,
-            'email'=> $request->stud_id,
-            'password'=> Hash::make($request->stud_id),
+            // 'email'=> $request->stud_id,
+            // 'password'=> Hash::make($request->stud_id),
+            'email'=> $request->UserName,
+            'password'=> Hash::make($request->Password),
+            'year'=> $request->year,
             'role'=> "user",
             'cp_num'=> $request->CP_number,
         ]);

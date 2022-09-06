@@ -46,6 +46,7 @@ class DatabaseSeeder extends Seeder
             'course'=> "BSED - Math",
             'email' => 'admin@gmail.com',
             'password' => Hash::make('secret'),
+            'year' => '1st',
             'role' => 'admin',
             'cp_num' => '+639',
             'created_at' => now(),

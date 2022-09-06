@@ -7,10 +7,10 @@ use App\Models\Docrequest;
 use DB;
 use Auth;
 use DateTime;
+use Carbon\Carbon;
 class DocrequestController extends Controller
 {
     function store(Request $request){
-        
         // $request->validate([
         //     'Hon_Dismissal' => ['required_without_all: SO, Diploma,TOR,Form137,GoodMoral'],
         //     'SO' => ['required_without_all: Hon_Dismissal, Diploma,TOR,Form137,GoodMoral'],
@@ -31,7 +31,9 @@ class DocrequestController extends Controller
 
         $data->cp = auth()->user()->cp_num;
         // $data->date = $request->input('date');
-        $data->date = date('Y-m-d H:i:s');
+        $createdAt = Carbon::parse(date('Y-m-d H:i:s'));
+        $data->date = $createdAt->format('M d Y');
+        // $data->date = date('Y-m-d H:i:s');
        
         if($request->input('Hon_Dismissal') != null){
             $data->HonDismissal = $request->input('Hon_Dismissal');
@@ -139,9 +141,37 @@ class DocrequestController extends Controller
 
         $data->Status = "New";
         $data->save();
-        return redirect('UserDash')->with('message','Request Sent!');
+
+        return redirect('UserReq')->with('message','Request Sent!');
     }else{
-        return redirect('UserDash')->with('message1','Please Fill your Request Form!');
+        return redirect('UserReq')->with('message1','Please Fill your Request Form!');
     }
+    }
+    
+    function new_req(){
+        $data = DB::table('docrequests')->where('Status', "New")->get();
+        $new = DB::table('docrequests')->where('Status', "New")->count();
+        $claimed = DB::table('docrequests')->where('Status', "Claimed")->count();
+        $ready = DB::table('docrequests')->where('Status', "Ready")->count();
+
+        return view('NewRequest',['data'=>$data,'new'=>$new ,'claimed'=>$claimed ,'ready'=>$ready]);
+    }
+
+    function claimed(){
+        $data = DB::table('docrequests')->where('Status', "Done")->get();
+        $new = DB::table('docrequests')->where('Status', "New")->count();
+        $claimed = DB::table('docrequests')->where('Status', "Claimed")->count();
+        $ready = DB::table('docrequests')->where('Status', "Ready")->count();
+
+        return view('Claimed',['data'=>$data,'new'=>$new ,'claimed'=>$claimed ,'ready'=>$ready]);
+    }
+
+    function unclaimed(){
+        $data = DB::table('docrequests')->where('Status', "Ready")->get();
+        $new = DB::table('docrequests')->where('Status', "New")->count();
+        $claimed = DB::table('docrequests')->where('Status', "Claimed")->count();
+        $ready = DB::table('docrequests')->where('Status', "Ready")->count();
+
+        return view('Unclaimed',['data'=>$data,'new'=>$new ,'claimed'=>$claimed ,'ready'=>$ready]);
     }
 }

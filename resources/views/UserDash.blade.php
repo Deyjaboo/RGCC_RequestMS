@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <title>Request Form</title>
+
+    <link rel="stylesheet" href="css/styles.css"> 
 </head>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap');
@@ -18,7 +20,7 @@
 
 html {
     font-size: 80.5%;
-    font-family: 'Roboto', sans-serif;
+    
 }
 
 li {
@@ -131,7 +133,7 @@ a {
   padding: 0;
   box-sizing: border-box;
   outline: none;
-  font-family: sans-serif;
+ 
 }
 
 body{
@@ -249,6 +251,9 @@ ul li a {
   display: block;
 }
 }
+#table1{
+  background-color: white;
+}
 </style>
 <body>
 
@@ -257,29 +262,20 @@ ul li a {
         <img src="images/logo.png" width="60" height="70"> 
             <!-- <a href="#" class="nav-logo">R.G.de Castro Colleges</a> -->
             <ul class="nav-menu">
-               
-                <li class="nav-item">
-
-
+              <li>
                 <form method="POST" action="{{ route('logout') }}">
                             @csrf
-
-                      
-                    <li class="nav-link">
                     <a href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                         <i class='bx bx-log-out icon' ></i>
                         <span class="nav-link">Hi, James</span>
                     </a>
-                     </li>
-                     
                 </form>
-
-                    <ul>
-                   
-                </ul>
-                </li>
+              </li>
+              <li>
+              <a href="UserReq">Request</a>
+              </li>
             </ul>
             <div class="hamburger">
                 <span class="bar"></span>
@@ -290,205 +286,171 @@ ul li a {
 </header>
 
 
-
-<div class="wrapper">
- <div class="form_container">
-        
-        
-        
-                <div class="heading">
-                  <!-- <img src="images/logo.png" width="60" height="80"> -->
-                    <h4 >R.G. de Castro Colleges</h4>
-                    <h6 >Bulan Sorsogon</h6>
+<div class="container">
+    <div class="main-body">
+    
+          <!-- Breadcrumb -->
+         
+          <!-- /Breadcrumb -->
+    <br><br>
+          <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                    <div class="mt-3">
+                      <h4>Juan Dela Cruz</h4>
+                      <p class="text-muted font-size-sm">ID: <b>18-9231</b></p>
+                      <p class="text-secondary mb-1">BSIT - 4th year</p>
+                    </div>
+                  </div>
                 </div>
-        @if(session()->has('message'))
-            <div class="alert alert-success">
-                {{ session()->get('message') }}
+              </div>
             </div>
-        @endif
-        @if(session()->has('message1'))
-            <div class="alert alert-danger">
-                {{ session()->get('message1') }}
+            <div class="col-md-8">
+              <div class="card mb-3">
+                <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Student ID</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                    18-9231
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Full Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                    Juan Dela Cruz
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Course & Year</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      BSIT 4th year
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">User Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      fip@jukmuh.al
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Password</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      secret
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Mobile Number</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      09213823792
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+              </div>
+
             </div>
-        @endif
-       <br>         
-  <form action="docu_request" method="post" enctype="multipart/form-data">
-  {{ csrf_field() }}
-    <div class="container-fluid"> 
-    <center> <h3 >Request Form</h3></center>
-    <!-- <div class="dat">
-        <label for="date">Date:</label>
-        <input type="date" id="date" name="date" required>
-    </div>  -->
-
-    <p>May I Request for:</p>
-
-        <div class="row">
-
-        <div class="col-md-6 p-6">
-        <div class="form-check">
-                <input class="form-check-input" name="Hon_Dismissal" type="checkbox" value="Dismissal" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                Honorable Dismissal
-                </label>
-         </div>
-        </div>
-
-        <div class="col-md-6 p-6">
-                <input class="form-check-input" name="TOR" type="checkbox" value="TOR" id="flexCheckChecked">
-                <label class="form-check-label" for="flexCheckChecked">
-                Transcript of Record
-                </label>
-        </div>
-        </div>
-
-        <div class="row">
-
-        <div class="col-md-6 p-6">
-        <div class="form-check">
-                 <input class="form-check-input" name="SO" type="checkbox" value="Special Order" id="flexCheckChecked">
-                <label class="form-check-label" for="flexCheckChecked">
-                Special Order
-                </label>
-        </div>
-        </div>
-
-        <div class="col-md-6 p-6">
-        <input class="form-check-input" name="Form137" type="checkbox" value="Form 137" id="flexCheckChecked">
-                <label class="form-check-label" for="flexCheckChecked">
-                 Form 137
-                </label>
-        </div>
-        </div>
-
-
+          </div>
         
-        <div class="row">
-
-        <div class="col-md-6 p-6">
-        <div class="form-check">
-                 <input class="form-check-input" name="Diploma" type="checkbox" value="Diploma" id="flexCheckChecked">
-                <label class="form-check-label" for="flexCheckChecked">
-                Diploma
-                </label>
-        </div>
-        </div>
-
-        <div class="col-md-6 p-6">
-                <input class="form-check-input" name="GoodMoral" type="checkbox" value="Good Moral" id="flexCheckChecked">
-                <label class="form-check-label" for="flexCheckChecked">
-                 Good Moral Character
-                </label>
-        </div>
-        </div>
-<br>
-        <p>Certification of:</p>
-
-
-
-
-        <div class="row">
-        <div class="col-md-6 p-6">
-        <div class="form-check">
-                <input class="form-check-input" name="UnitEarned" type="checkbox" value="Units Earned" id="flexCheckChecked">
-                <label class="form-check-label" for="flexCheckChecked">
-                Unit Earned
-                </label>
-        </div>
-        </div>
-
-        <div class="col-md-6 p-6">
-                <input class="form-check-input" name="GWA" type="checkbox" value="GWA" id="flexCheckChecked">
-                <label class="form-check-label" for="flexCheckChecked">
-                General Weighted Average
-                </label>
-        </div>
-        </div>
-
-        <div class="row">
-        <div class="col-md-6 p-6">
-        <div class="form-check">
-                <input class="form-check-input" name="Graduation" type="checkbox" value="Graduation" id="flexCheckChecked">
-                <label class="form-check-label" for="flexCheckChecked">
-                Graduation
-                </label>
-        </div>
-        </div>
-
-        <div class="col-md-6 p-6">
-                <input class="form-check-input" name="Grades" type="checkbox" value="Grades" id="flexCheckChecked">
-                <label class="form-check-label" for="flexCheckChecked">
-                Grades
-                </label>
-        </div>
-        </div>
-
-        <br>
-        <p>Authentication:</p>
-
-        <div class="container-fluid">
-
-        <div class="row">
-        <div class="col-md-4 p-4">
-                <input class="form-check-input" name="auth_Transcript" type="checkbox" value="Transcript" id="flexCheckChecked">
-                <label class="form-check-label" for="flexCheckChecked">
-                Transcript
-                </label>
-        </div>
-
-        <div class="col-md-4 p-4">
-                <input class="form-check-input" name="auth_SO" type="checkbox" value="Special Order" id="flexCheckChecked">
-                <label class="form-check-label" for="flexCheckChecked">
-                Special Order
-                </label>
-        </div>
-
-        <div class="col-md-4 p-4">
-                <input class="form-check-input"name="auth_Diploma" type="checkbox" value="Diploma" id="flexCheckChecked">
-                <label class="form-check-label" for="flexCheckChecked">
-                Diploma
-                </label>
-        </div>
-        </div>
-        </div>
-
-        <p>Purpose:</p>
-        <div class="row">
-        <div class="col-md-6 p-6">
-        <div class="form-check">
-                <input class="form-check-input" name="Enroll" type="checkbox" value="Enrollment" id="flexCheckChecked">
-                <label class="form-check-label" for="flexCheckChecked">
-                For Enrolment
-                </label>
-        </div>
-        </div>
-
-        <div class="col-md-6 p-6">
-                <input class="form-check-input" name="Employ" type="checkbox" value="Employement" id="flexCheckChecked">
-                <label class="form-check-label" for="flexCheckChecked">
-                For Employment
-                </label>
-        </div>
-        </div>
-
-        <div class="col-md-6 p-6">
-                <input class="form-check-input" name="License_Exam" type="checkbox" value="Licensure Examination" id="flexCheckChecked">
-                <label class="form-check-label" for="flexCheckChecked">
-                For Licensure Examination
-                </label>
-        </div>
-
-        <br>
-        <div class="d-grid gap-2">
-      <!-- <button class="btn btn-success" type="submit" id="sub">Submit</button> -->
-      <input type="submit" class="btn btn-primary" id="sub" value="Submit">
-      </div>
-
     </div>
-  </form>
- </div>
-</div>
-
+    <div class="container" id="table1">
+          <div class="form_container">
+                        <div class="card-body">
+                                <table id="datatablesSimple">
+                                <thead>
+                                        <tr>
+                                            <!-- <th>Name</th>
+                                            <th>Mobile Number</th>
+                                            <th>Course</th> -->
+                                            <th>Date</th>
+                                            <th>Honorable Dismissal</th>
+                                            <th>Special Order</th>
+                                            <th>Diploma</th>
+                                            <th>Transcript Of Record</th>
+                                            <th>Form137</th>
+                                            <th>Good Moral</th>
+                                            <th>Unit Earned</th>
+                                            <th>Graduation</th>
+                                            <th>GWA</th>
+                                            <th>Grades</th>
+                                            <th>Authenticate Transcript</th>
+                                            <th>Authenticate Special_Order</th>
+                                            <th>Authenticate Diploma</th>
+                                            <th>Purpose</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <!-- <th>Name</th>
+                                            <th>Mobile Number</th>
+                                            <th>Course</th> -->
+                                            <th>Date</th>
+                                            <th>Honorable Dismissal</th>
+                                            <th>Special Order</th>
+                                            <th>Diploma</th>
+                                            <th>Transcript Of Record</th>
+                                            <th>Form137</th>
+                                            <th>Good Moral</th>
+                                            <th>Unit Earned</th>
+                                            <th>Graduation</th>
+                                            <th>GWA</th>
+                                            <th>Grades</th>
+                                            <th>Authenticate Transcript</th>
+                                            <th>Authenticate Special_Order</th>
+                                            <th>Authenticate Diploma</th>
+                                            <th>Purpose</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr>
+                                            <!-- <td>Juan Dela Cruz</td>
+                                            <td>0912381293</td>
+                                            <td>BSIT</td> -->
+                                            <td>Aug 23 2022</td>
+                                            <td id="item">Honorable Dismissal</td>
+                                            <td id="item">Special Order</td>
+                                            <td id="item">Diploma</td>
+                                            <td id="item">TOR</td>
+                                            <td id="item">Form137</td>
+                                            <td id="item">GoodMoral</td>
+                                            <td id="item">UnitEarned</td>
+                                            <td id="item">Graduation</td>
+                                            <td id="item">GWA</td>
+                                            <td id="item">Grades</td>
+                                            <td id="item">Auth_Transcript</td>
+                                            <td id="item">Auth_Special_Order</td>
+                                            <td id="item">Auth_Diploma</td>
+                                            <td>Purpose</td>
+                                            <td>Status</td>
+                                        </tr>
+                                    </tbody>
+                                 
+                                </table>
+                                </div>
+                          </div>
+        </div>
 
 <script>
         const hamburger = document.querySelector(".hamburger");
@@ -512,6 +474,10 @@ function closeMenu() {
 
 
 </script>
+<script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>  <!-- gride line table-->
+        <script src="js/datatables-simple-demo.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
