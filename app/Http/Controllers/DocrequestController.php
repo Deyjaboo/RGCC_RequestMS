@@ -25,8 +25,8 @@ class DocrequestController extends Controller
         //or $request->input('Enrollment') != null or $request->input('Employment') != null or $request->input('License_Exam') != null){
        
         $data = new Docrequest();
-        $data->stud_id = auth()->user()->stud_id;
-        $data->Name = auth()->user()->Lname . ", ". auth()->user()->Fname . " ". auth()->user()->Mname[0] . auth()->user()->suffix;
+        $data->stud_id = auth()->user()->student_id;
+        $data->Name = auth()->user()->Last_Name . ", ". auth()->user()->First_Name . " ". auth()->user()->Middle_Name[0] . auth()->user()->suffix;
         $data->Course = auth()->user()->course;
 
         $data->cp = auth()->user()->cp_num;

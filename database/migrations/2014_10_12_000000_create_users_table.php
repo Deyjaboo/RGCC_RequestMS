@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('stud_id')->unique();
-            $table->string('Fname');
-            $table->string('Mname');
-            $table->string('Lname');
+            $table->string('student_id')->unique();
+            $table->string('First_Name');
+            $table->string('Middle_Name');
+            $table->string('Last_Name');
             $table->string('suffix');
             $table->string('course');
             $table->string('year');

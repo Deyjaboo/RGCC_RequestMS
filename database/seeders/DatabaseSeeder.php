@@ -38,10 +38,10 @@ class DatabaseSeeder extends Seeder
             'updated_at' => now()
         ]);
         DB::table('users')->insert([
-            'stud_id'=> '1',
-            'Fname'=> 'Admin',
-            'Mname'=> 'Admin',
-            'Lname'=> 'Admin',
+            'student_id'=> '1',
+            'First_Name'=> 'Admin',
+            'Middle_Name'=> 'Admin',
+            'Last_Name'=> 'Admin',
             'suffix'=> " ",
             'course'=> "BSED - Math",
             'email' => 'admin@gmail.com',

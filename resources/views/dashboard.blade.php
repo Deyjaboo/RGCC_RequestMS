@@ -185,10 +185,10 @@
                                     <tbody>
                                     @foreach($data as $data)
                                         <tr>
-                                            <td>{{$data->stud_id}}</td>
-                                            <td>{{$data->Lname}},
-                                                {{$data->Fname}}
-                                                {{$data->Mname[0]}}.
+                                            <td>{{$data->student_id}}</td>
+                                            <td>{{$data->Last_Name}},
+                                                {{$data->First_Name}}
+                                                {{$data->Middle_Name[0]}}.
                                                 {{$data->suffix}}
                                                
                                             </td>

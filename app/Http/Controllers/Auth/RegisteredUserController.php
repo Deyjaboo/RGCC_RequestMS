@@ -48,16 +48,16 @@ class RegisteredUserController extends Controller
         }else{
             $EXTname = $request->suffix;
         }
-        if(is_null($request->Mname)){
+        if(is_null($request->Middle_Name)){
             $Mname = " ";
         }else{
-            $Mname = $request->Mname;
+            $Mname = $request->Middle_Name;
         }
         $user = User::create([
-            'student_id'=> $request->stud_id,
-            'First_Name'=> $request->Fname,
+            'student_id'=> $request->student_id,
+            'First_Name'=> $request->First_Name,
             'Middle_Name'=> $Mname,
-            'Last_Name'=> $request->Lname,
+            'Last_Name'=> $request->Last_Name,
             'suffix'=> $EXTname,
             'course'=> $request->course,
             // 'email'=> $request->stud_id,

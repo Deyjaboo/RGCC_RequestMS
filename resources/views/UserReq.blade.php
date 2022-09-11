@@ -8,121 +8,131 @@
     <title>Request Form</title>
 </head>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap');
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html {
-    font-size: 80.5%;
-    font-family: 'Roboto', sans-serif;
+body {
+    height: 100vh;
+    background: #D7DDE5;
+    font-family: "Roboto", sans-serif;
 }
 
-li {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-}
-
-
-.header{
-    border-bottom: 1px solid #E2E8F0;
-}
-
-.navbar {
+nav {
     display: flex;
     justify-content: space-between;
+    padding: 15px 5%;
     align-items: center;
-    padding: 1rem 1.5rem;
-    background-color: white;
+    background: #fff;
 }
 
-.hamburger {
+.logo {
+    color: #b30000;
+    font-size: 22px;
+}
+
+ul {
+    list-style: none;
+    margin-bottom: -5px;
+}
+
+ul li {
+    display: inline-block;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #b30000;
+    padding: 8px 30px;
+    border-radius: 7px;
+    transition: all .3s ease;
+}
+
+ul li a:hover,
+ul li a.active {
+    color: #FFF;
+    background:#b30000;
+}
+
+#icon {
+    background-color: #b30000;
+    padding: 5px 7px 3px 7px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+#icon svg {
+    color: #FFF;
+    height: 28px;
+    transition: all .3s ease;
+}
+
+#icon:hover {
+    background: #FFF;
+}
+
+#icon:hover svg {
+  background:  #b30000;
+    color: #FFF;
+    padding: 5px 7px 3px 7px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+#checkbox,
+#icon {
     display: none;
 }
 
-.bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    background-color: #101010;
+
+.link i {
+    padding-left: 7px;
 }
 
-.nav-menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.link:hover {
+    text-decoration: underline;
+    background-color: black;
 }
+@media screen and (max-width: 768px) {
+    /* nav {
+        border-bottom: 1px solid #455468;
+    } */
 
-.nav-item {
-    margin-left: 5rem;
-}
-
-.nav-link{
-    font-size: 1.6rem;
-    font-weight: 400;
-    color: #b30000;
-}
-
-.nav-link:hover{
-    color: #482ff7;
-}
-
-.nav-logo {
-    font-size: 2.1rem;
-    font-weight: 500;
-    color:#b30000;
-}
-
-@media only screen and (max-width: 768px) {
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 5rem;
-        flex-direction: column;
-        background-color: #fff;
+    ul {
+        position: absolute;
         width: 100%;
-        border-radius: 10px;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow:
-            0 10px 27px rgba(0, 0, 0, 0.05);
-    }
-
-    .nav-menu.active {
+        height: calc(20vh - 40px);
+        background-color: #fff;
         left: 0;
+        top: 0;
+        text-align: center;
+        display: none;
+        margin-top: 70px;
     }
 
-    .nav-item {
-        margin: 2.5rem 0;
-    }
-
-    .hamburger {
+    ul li {
         display: block;
-        cursor: pointer;
+        padding: 10px 15px;
+       
     }
 
+    ul li a {
+        display: block;
+        padding: 10px 0;
+    }
+
+    #icon {
+        display: block;
+    }
+
+    #checkbox:checked~ul {
+        display: block;
+    }
 }
-
-.hamburger.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
 
 
 
@@ -131,7 +141,7 @@ a {
   padding: 0;
   box-sizing: border-box;
   outline: none;
-  font-family: sans-serif;
+
 }
 
 body{
@@ -151,111 +161,65 @@ body{
   padding: 30px;
   box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.15);
   border-radius: 3px;
+  font-family: Helvetica;
+  font-size: 16px;
+  
 }
 
 .heading{
-  /* background:#b30000;  */
-  background:	 #f2f2f2; 
+   background:#b30000; 
+  /* background:	 #f2f2f2;  */
   margin: -30px;
   text-align: center;
-  /* color: white; */
-   color: #b30000; 
-  font-size: 19px;
+   color: white; 
+   /* color: #b30000;  */
+  font-size: 22px;
   margin-bottom: 5px;
   padding: 10px;
+  font-family: Helvetica;
 }
 
 .btn{
   background:#b30000; 
   color:white;
   border: 1px solid white;
+  padding-bottom:20px;
+  font-size: 18px;
+  height: 40px;
+  
 }
 #sub:hover{
   background-color: rgba(195, 0, 0, 0.95); /* Green */
   color: white;
 }
-.dat{
-        /* width: 150px;  */
-  /* margin-left: 300px; */
-  text-align: right;
-}
 
-/* @media screen and (max-width: 600px) {
- .dat{
-  margin-left: -300px;
-} 
-} */
-ul {
-  margin: 0px;
-  padding: 0px;
-  /* background: #e3e3e3; */
-  list-style-type: none;
-  position: relative;
-}
 
-/* ul li {
-  display: inline-block;
-} */
-
-ul li a {
-  padding: 15px;
-  color: #292929;
-  text-decoration: none;
-  display: block;
-}
-
-/* ul li:hover {
-  background: lightgrey;
-} */
-
-ul ul {
-  position: absolute;
-  min-width: auto;
-  background: lightgrey;
-  display: none;
-}
-
-ul ul li {
-  display: block;
-  background: #e3e3e3;
-}
-
-ul li:hover ul {
-  display: block;
-}
-
-@media (max-width:600px) {
-  ul {
-    display: none;
-    position: static;
-    background: #e3e3e3;
-  }
-  ul li {
-    display: block;
-  }
-  ul ul {
-    position: static;
-    background: #e3e3e3;
-  }
-
-  ul li:hover ul {
-  display: block;
-}
-
-ul li a {
-  padding: 15px;
-  color: #292929;
-  text-decoration: none;
-  display: block;
-}
-}
 </style>
 <body>
 
-<header class="header">
+<nav>
+ <!-- <img src="images/logo.png" width="50" height="40"> -->
+      <b><div class="logo">RGCC</div></b>  
+        <input type="checkbox" id="checkbox">
+        <label for="checkbox" id="icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </label>
+        <ul>
+           
+
+          <b>
+            <li><a href="#">Request</a></li>
+            <li><a href="#">LogOut</a></li>
+            </b>
+        </ul>
+    </nav>
+
+
+
+<!-- <header class="header">
         <nav class="navbar">
         <img src="images/logo.png" width="60" height="70"> 
-            <!-- <a href="#" class="nav-logo">R.G.de Castro Colleges</a> -->
+          
             <ul class="nav-menu">
               <li>
                 <form method="POST" action="{{ route('logout') }}">
@@ -275,7 +239,7 @@ ul li a {
                 <span class="bar"></span>
             </div>
         </nav>
-</header>
+</header> -->
 
 
 
@@ -286,8 +250,8 @@ ul li a {
         
                 <div class="heading">
                   <!-- <img src="images/logo.png" width="60" height="80"> -->
-                    <h4 >R.G. de Castro Colleges</h4>
-                    <h6 >Bulan Sorsogon</h6>
+                    <p >R.G. de Castro Colleges</6>
+                    <h6>Bulan Sorsogon</h4>
                 </div>
         @if(session()->has('message'))
             <div class="alert alert-success">
@@ -303,13 +267,13 @@ ul li a {
   <form action="docu_request" method="post" enctype="multipart/form-data">
   {{ csrf_field() }}
     <div class="container-fluid"> 
-    <center> <h3 >Request Form</h3></center>
+  <b><center> <h3 >Request Form</h3></center></b>  
     <!-- <div class="dat">
         <label for="date">Date:</label>
         <input type="date" id="date" name="date" required>
     </div>  -->
 
-    <p>May I Request for:</p>
+  <i><b><p>May I Request for:</p></b> </i> 
 
         <div class="row">
 
@@ -370,7 +334,7 @@ ul li a {
         </div>
         </div>
 <br>
-        <p>Certification of:</p>
+      <b><p>Certification of:</p></b>  
 
 
 
@@ -412,7 +376,8 @@ ul li a {
         </div>
 
         <br>
-        <p>Authentication:</p>
+        <b><p>Authentication:</p></b>
+        
 
         <div class="container-fluid">
 
@@ -440,7 +405,7 @@ ul li a {
         </div>
         </div>
 
-        <p>Purpose:</p>
+       <b><p>Purpose:</p></b> 
         <div class="row">
         <div class="col-md-6 p-6">
         <div class="form-check">
@@ -467,9 +432,9 @@ ul li a {
         </div>
 
         <br>
-        <div class="d-grid gap-2">
+        <div class="d-grid gap-3">
       <!-- <button class="btn btn-success" type="submit" id="sub">Submit</button> -->
-      <input type="submit" class="btn btn-primary" id="sub" value="Submit">
+      <input type="submit" class="btn" id="sub" value="Submit">
       </div>
 
     </div>

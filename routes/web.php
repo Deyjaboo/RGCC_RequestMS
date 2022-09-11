@@ -74,6 +74,7 @@ Route::middleware('auth','isAdmin')->group(function () {
      Route::get('/UserDash', function () {
        return view('UserDash');
     });
+    Route::get('UserDash',[UserController::class ,'user_profile']);
 
     Route::get('/UserReq', function () {
         return view('UserReq');
