@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<link rel="stylesheet" href="css/main.css">
+	<link rel="shortcut icon" href="images/logo.png"/>
 
 	</head>
 	<body>
@@ -22,7 +23,9 @@
 				</div>
 			</div> -->
 
-
+			
+							
+					
 			<div class="row justify-content-center">
 				<div class="col-md-12 col-lg-10">
 					<div class="wrap d-md-flex">
@@ -36,16 +39,19 @@
 								<a href="#" class="btn btn-white btn-outline-white">Sign Up</a> -->
 							</div>
 			      </div>
+		
 						<div class="login-wrap p-4 p-lg-5">
-						<x-auth-session-status class="mb-4" :status="session('status')"/>
-							<x-auth-validation-errors class="mb-4" :errors="$errors" id="error"/>
+						
 							<form method="POST" action="{{ route('login') }}">
 							@csrf
-						
+							
+							<x-auth-session-status class="mb-4" :status="session('status')"/>
+					<x-auth-validation-errors class="mb-4" :errors="$errors" id="error"/>
 			      		<div class="form-group mb-3">
 			      			<label class="label" for="name">Username</label>
 			      			<input id="email" name="email" type="text" class="form-control" placeholder="Username" required autofocus>
 			      		</div>
+						 
 		            <div class="form-group mb-3">
 		            	<label class="label" for="password">Password</label>
 		              <input id="password" name="password" type="password" class="form-control" placeholder="Password" required>

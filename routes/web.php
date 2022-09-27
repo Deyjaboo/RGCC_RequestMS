@@ -82,6 +82,9 @@ Route::middleware('auth','isAdmin')->group(function () {
 
      // Request Data
      Route::post('docu_request',[DocrequestController::class ,'store']);
+     
+    // Request Data 
+     Route::post('EditStudent/{id}',[UserController::class ,'update_student'])->name('EditStudent');
   });
 
 

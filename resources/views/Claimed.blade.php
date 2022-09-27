@@ -97,18 +97,10 @@
         </div>      
     </nav>
 
-<section id="home">
-<div class="wrapper">
-    <div class="form_container">
 
-
-    </div>
-        </div>  
-
-</section>
     <section class="home">
         <div class="text">Claimed Documents</div>
-        <!-- <h5 class="add">Dashboard</h5> -->
+        
         <div class="row">
        
         <div class="main-section">

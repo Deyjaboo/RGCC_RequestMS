@@ -25,11 +25,12 @@ nav {
     justify-content: space-between;
     padding: 15px 5%;
     align-items: center;
-    background: #fff;
+    background: #b30000;
 }
 
 .logo {
-    color: #b30000;
+    color:white;
+    /* color: #b30000; */
     font-size: 22px;
 }
 
@@ -44,7 +45,8 @@ ul li {
 
 ul li a {
     text-decoration: none;
-    color: #b30000;
+    /* color: #b30000; */
+    color:white;
     padding: 8px 30px;
     border-radius: 7px;
     transition: all .3s ease;
@@ -53,15 +55,16 @@ ul li a {
 ul li a:hover,
 ul li a.active {
     color: #FFF;
-    background:#b30000;
+    background:#ff1a1a;
 }
 
 #icon {
-    background-color: #b30000;
+ 
     padding: 5px 7px 3px 7px;
     border-radius: 4px;
     cursor: pointer;
     transition: all .3s ease;
+    color: white;
 }
 
 #icon svg {
@@ -72,11 +75,12 @@ ul li a.active {
 
 #icon:hover {
     background: #FFF;
+    color: #b30000;
 }
 
 #icon:hover svg {
-  background:  #b30000;
-    color: #FFF;
+  background: white;
+    color: #b30000;
     padding: 5px 7px 3px 7px;
     border-radius: 4px;
     cursor: pointer;
@@ -105,13 +109,15 @@ ul li a.active {
     ul {
         position: absolute;
         width: 100%;
-        height: calc(20vh - 40px);
-        background-color: #fff;
+        height: calc(30vh - 40px);
+        background-color: #b30000;
         left: 0;
         top: 0;
         text-align: center;
         display: none;
         margin-top: 70px;
+        
+        
     }
 
     ul li {
@@ -208,8 +214,9 @@ body{
            
 
           <b>
-            <li><a href="#">Request</a></li>
+            <li><a href="UserDash">{{Auth::user()->First_Name}} {{Auth::user()->Middle_Name[0]}}. {{Auth::user()->Last_Name}} {{Auth::user()->suffix}}</a></li>
             <li><a href="#">LogOut</a></li>
+            
             </b>
         </ul>
     </nav>

@@ -7,21 +7,23 @@
     <!----======== CSS ======== -->
     <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="css/adduser.css">
-    <link rel="stylesheet" href="css/modal.css">
-
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
-    <title>Add User</title>
-    
- <!----======== Bootstrap CSS ======== -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
-   <!----======== Bootstrap JS ======== -->
-   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  
-<body>  
  
+    <title>Add User</title>
+
+<style>
+
+body .input{
+  font-family: Arial, Helvetica, sans-serif;
+}
+  .adds{
+    color:red;
+    font-size: 24px;
+    font-weight: 100;
+    padding-bottom:10px;
+  }
+</style>
+
   </head>
 <body>
     <nav class="sidebar close">
@@ -99,24 +101,18 @@
     </nav>
 
     <section class="home">
-        <!-- <div class="text">Online Document Request System</div> -->
-        <div class="text">Add User</div>
+
+    <!-- <div class="text">Add User </div> -->
 
   <div class="wrapper">
+  <!-- <center> <h1 class="adds">Add User</h1></center>  -->
     <div class="form_container">
 
     <div class="form_wrap fullname">
       <div class="form_item">
+   
         <h5><label><span class="text-danger">*</span><i>Required</i></label></h5>
       </div>
-
-      <!-- <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Modal</button> -->
-
-
-
-       <!-- <div class="form_item">
-        <button onclick="document.getElementById('id01').style.display='block'" id="batch_add" data-toggle="modal" data-target="#exampleModalCenter"><i class='bx bx-user-plus'></i> Batch Add</button>
-      </div> -->
     </div>
         
         <br>
@@ -195,6 +191,7 @@
           <option value="BSEED">BSEED</option>
       </select>      
     </div>
+    
     <div class="form_item">
       <label>Year<span class="text-danger">*</span></label>
       <select class="form-control col-12" name="year" id="year" required>
@@ -208,8 +205,7 @@
 </div>
   
     <button id="submit" type="submit" value="Submit">Submit</button>
-     <!-- <button type="submit">Submit</button> -->
- 
+  
   </form>
  </div>
 </div>
