@@ -222,6 +222,8 @@
         </div>
     </section>
 
+<!-- Edit css -->
+
 <!-- Modal start -->
  <div id="EditMe" class="modal fade">
   <div class="modal-dialog modal-dialog-centered" role="document">
