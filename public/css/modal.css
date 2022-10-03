@@ -5138,7 +5138,7 @@ textarea.form-control-lg {
   z-index: 1080;
   display: block;
   margin: 0;
-  font-family: var(--bs-font-sans-serif);
+  font-family: sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -5240,7 +5240,7 @@ textarea.form-control-lg {
   z-index: 1070;
   display: block;
   max-width: 276px;
-  font-family: var(--bs-font-sans-serif);
+  font-family: sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -10791,40 +10791,6 @@ body {
   background-color: #e9ecef;
 } */
 
-.dataTable-wrapper .dataTable-container {
-  font-size: 0.875rem;
-}
-
-.dataTable-wrapper.no-header .dataTable-container {
-  border-top: none;
-}
-
-.dataTable-wrapper.no-footer .dataTable-container {
-  border-bottom: none;
-}
-
-.dataTable-top {
-  padding: 0 0 1rem;
-}
-
-.dataTable-bottom {
-  padding: 0;
-}
-
-.dataTable-top > nav:first-child,
-.dataTable-top > div:first-child,
-.dataTable-bottom > nav:first-child,
-.dataTable-bottom > div:first-child {
-  float: left;
-}
-
-.dataTable-top > nav:last-child,
-.dataTable-top > div:last-child,
-.dataTable-bottom > nav:last-child,
-.dataTable-bottom > div:last-child {
-  float: right;
-}
-
 .dataTable-selector {
   width: auto;
   display: inline-block;
@@ -10951,24 +10917,6 @@ body {
   width: 20px !important;
   font-size: 0.75rem;
   border-radius: 0.25rem !important;
-}
-
-
-.wrapper{
-  max-width: 1200px;
-  width: 100%;
-  margin: 30px auto 0;
-  padding: 10px;
-}
-
-.wrapper .form_container{
-  background: #fff;
-  padding: 30px;
-  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.15);
-  border-radius: 3px;
-}
-.wrapper .form_container .form_item{
-  margin-bottom: 25px;
 }
 
 .form_wrap.fullname,
