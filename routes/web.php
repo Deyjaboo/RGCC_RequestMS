@@ -71,9 +71,9 @@ Route::middleware('auth','isAdmin')->group(function () {
 
    Route::middleware(['auth'])->group(function(){
 
-     Route::get('/UserDash', function () {
-       return view('UserDash');
-    });
+    //  Route::get('/UserDash', function () {
+    //    return view('UserDash');
+    // });
     Route::get('UserDash',[UserController::class ,'user_profile']);
 
     Route::get('/UserReq', function () {
@@ -85,6 +85,8 @@ Route::middleware('auth','isAdmin')->group(function () {
      
     // Request Data 
      Route::post('EditStudent/{id}',[UserController::class ,'update_student'])->name('EditStudent');
+     Route::post('SendReady/{id}',[UserController::class ,'send_ready'])->name('SendReady');
+     Route::post('claim/{id}',[UserController::class ,'claimed'])->name('claim');
   });
 
 

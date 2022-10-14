@@ -10,6 +10,12 @@
    
     <link rel="stylesheet" href="css/styles.css"> 
 
+
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,400,500,600" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -98,6 +104,7 @@
 
 <section id="home">
 <div class="wrapper">
+
     <div class="form_container">
 
 
@@ -152,9 +159,15 @@
       <br>
 
     <div class="wrapper">
+        
+ @if(session()->has('message'))
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
+            </div>
+        @endif
     <div class="form_container">
                         <div class="card-body">
-                                <table id="datatablesSimple">
+                                <table id="datatablesSimple" class="TableData">
                                     <thead>
                                         <tr>
                                         <th>ID</th>
@@ -178,6 +191,7 @@
                                             <th>Authenticate Diploma</th>
                                             <th>Purpose</th>
                                             <th>Status</th>
+                                            <th>Processes</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -203,6 +217,7 @@
                                             <th>Authenticate Diploma</th>
                                             <th>Purpose</th>
                                             <th>Status</th>
+                                            <th>Processes</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -229,12 +244,70 @@
                                             <td id="item">{{$data->Auth_Diploma}}</td>
                                             <td>{{$data->Purpose}}</td>
                                             <td>{{$data->Status}}</td>
+                                            <td>
+                                                <a href="javascript:void(0)" class="btn btn-primary" id="editbtn"><i class='bx bx-mail-send' data-toggle="tooltip" title="Edit"></i></a>
+                                                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"><i class='bx bx-edit-alt'></i></button> -->
+                                                <!-- <button type="button" class="btn btn-success"><i class='bx bx-receipt'></i></button> -->
+                                            </td>
                                         </tr>
                                     @endforeach
                                     </tbody>
                                 </table>
 
     </section>
+
+    
+<!-- Modal start -->
+ <div id="SendMe" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Edit Student Details</h5>
+        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button> -->
+      </div>
+      <form action="SendReady" method="post" enctype="multipart/form-data" id="SendForm">
+      {{ csrf_field() }}
+      <div class="modal-body">
+      <!-- <input type="text" name="TrasnID" id="TrasnID" class="form-control" disabled> -->
+      <!-- <input type="text" name="FullName" id="FullName" class="form-control" disabled> -->
+		The Document is <b>Ready</b> for release!
+      </div>
+      <div class="modal-footer">
+          <input type="submit" class="btn btn-primary" value="Send">
+          <input type="button" class="btn btn-danger" data-dismiss="modal" value="Cancel">
+      </div>
+      </form>
+    </div>
+  </div>
+</div> 
+<!-- Modal end -->
+
+<script>
+     // Edit
+     $(document).ready(function(){
+
+        $('.TableData').on('click', '#editbtn', function(){
+        $tr = $(this).closest('tr');
+
+            var data = $tr.children("td").map(function(){
+                return $(this).text();
+            }).get();
+            $('#TrasnID').val(data[0]);
+            $('#FullName').val(data[2]);
+            // $('#EditLastName').val(data[3]);
+            // $('#EditMiddleName').val(data[4]);
+            // $('#EditSuffix').val(data[5]);
+            // $('#EditCourse').val(data[6]);
+            // $('#EditYear').val(data[7]);
+            $('#EditMobileNumber').val(data[8]);
+            // $('#delete_modal_Form').attr('action', 'assets-delete/'+data[0]);
+            $('#SendForm').attr('action', 'SendReady/'+data[0]);
+            $('#SendMe').modal('show');
+        });
+});
+</script>
     <style>
         #item{
             color: red;

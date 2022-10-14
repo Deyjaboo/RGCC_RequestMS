@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!----======== CSS ======== -->
+
+    <!--======== CSS ======== -->
     <link rel="stylesheet" href="css/dashboard.css">
-    <link rel="stylesheet" href="css/styles.css"> 
-  
+    <link rel="stylesheet" href="css/styles.css">
+
 
    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
-     
+
+
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,400,500,600" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -48,7 +48,7 @@
                         <a href="dashboard"method="GET">
                             <i class='bx bx-home-alt icon' ></i>
                             <span class="text nav-text">Dashboard</span>
-                        
+
                         </a>
                     </li>
 
@@ -58,7 +58,7 @@
                             <i class='bx bx-user-plus icon'></i>
                             <span class="text nav-text">Add User</span>
                         </a>
-                    
+
                     </li>
 
                      <li class="nav-link">
@@ -66,26 +66,26 @@
                         <i class='bx bxs-file-plus icon'></i>
                             <span class="text nav-text">New Request</span>
                         </a>
-                    </li> 
+                    </li>
 
                     <li class="nav-link">
                         <a href="Claimed"method="GET">
                         <i class='bx bx-task icon'></i>
                             <span class="text nav-text">Claimed</span>
                         </a>
-                    </li> 
+                    </li>
 
                     <li class="nav-link">
                         <a href="Unclaimed">
                         <i class='bx bxs-file icon'></i>
                             <span class="text nav-text">Unclaimed </span>
                         </a>
-                    </li> 
+                    </li>
 
                     <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
-                      
+
                     <li class="nav-link">
                     <a href="route('logout')"
                                     onclick="event.preventDefault();
@@ -94,11 +94,11 @@
                         <span class="text nav-text">Logout</span>
                     </a>
                      </li>
-                     
+
                 </form>
                </ul>
             </div>
-        </div>      
+        </div>
     </nav>
 
 <section id="home">
@@ -107,13 +107,13 @@
 
 
     </div>
-        </div>  
+        </div>
 
 </section>
     <section class="home">
-    
+
         <div class="row">
-       
+
         <div class="main-section">
         <div class="columns">
 		<div class="dashbord">
@@ -155,16 +155,16 @@
         </div>
       <br>
   <h5 class="add">Enrolled Student: <b id="mark">{{$num}}</b></h5>
- 
-   
+
+
     <div class="wrapper">
-  
+
         @if(session()->has('message'))
             <div class="alert alert-success">
                 {{ session()->get('message') }}
             </div>
         @endif
-   
+
     <div class="form_container">
                         <div class="card-body">
                                 <table id="datatablesSimple" class="TableData">
@@ -216,7 +216,7 @@
                                         </tr>
                                     @endforeach
                                     </tbody>
-                                 
+
                                 </table>
                                 </div>
         </div>
@@ -245,7 +245,7 @@
                     <label>Student ID<span class="text-danger"></span></label>
                     <input type="text" name="EditStudentId" id="EditStudentId" class="form-control" placeholder="Student ID" required>
                 </div>
-                
+
                 <div class="form_item">
                     <label>First Name<span class="text-danger"></span></label>
                     <input type="text" name="EditFirstName" id="EditFirstName"  class="form-control" placeholder="Enter First Name" required>
@@ -276,30 +276,18 @@
                     </div>
                 </div>
 
-                <!-- <br>
-                <div class="form_wrap fullname">
-                    <div class="form_item">
-                    <label>User Name<span class="text-danger"></span></label>
-                    <input type="text"  name="UserName" id="UserName" class="form-control" placeholder="User Name" required>
-                    </div>
-                    <div class="form_item">
-                    <label>Password<span class="text-danger"></span></label>
-                    <input type="password"  name="Password" id="Password" class="form-control" placeholder="Password" required>
-                    </div>
-                </div> -->
-
                 <br>
                 <div class="form_wrap fullname">
-                    
+
                     <div class="form_item">
                     <label>Course<span class="text-danger"></span></label>
                     <select class="form-control col-12" name="EditCourse" id="EditCourse" required>
                         <option value="" selected="selected" disabled="disabled">Course</option>
                         <option value="BSIT">BSIT</option>
                         <option value="BSEED">BSEED</option>
-                    </select>      
+                    </select>
                     </div>
-                    
+
                     <div class="form_item">
                     <label>Year<span class="text-danger"></span></label>
                     <select class="form-control col-12" name="EditYear" id="EditYear" required>
@@ -308,10 +296,10 @@
                         <option value="2nd">2nd</option>
                         <option value="3rd">3rd</option>
                         <option value="4th">4th</option>
-                    </select>      
+                    </select>
                     </div>
             </div>
-	 
+
 
       </div>
       <div class="modal-footer">
@@ -321,7 +309,7 @@
       </form>
     </div>
   </div>
-</div> 
+</div>
 <!-- Modal end -->
 
 <script>
@@ -377,6 +365,6 @@ searchBtn.addEventListener("click" , () =>{
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>  <!-- gride line table-->
         <script src="js/datatables-simple-demo.js"></script>
-      
+
 </body>
 </html>

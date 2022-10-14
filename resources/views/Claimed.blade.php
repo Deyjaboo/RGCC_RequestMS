@@ -144,6 +144,11 @@
         </div>
       <br>
     <div class="wrapper">
+     @if(session()->has('message'))
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
+            </div>
+        @endif
     <div class="form_container">
                         <div class="card-body">
                                 <table id="datatablesSimple">

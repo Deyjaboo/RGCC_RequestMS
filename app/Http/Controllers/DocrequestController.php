@@ -158,7 +158,7 @@ class DocrequestController extends Controller
     }
 
     function claimed(){
-        $data = DB::table('docrequests')->where('Status', "Done")->get();
+        $data = DB::table('docrequests')->where('Status', "Claimed")->get();
         $new = DB::table('docrequests')->where('Status', "New")->count();
         $claimed = DB::table('docrequests')->where('Status', "Claimed")->count();
         $ready = DB::table('docrequests')->where('Status', "Ready")->count();

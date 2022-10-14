@@ -355,7 +355,7 @@ td, th {
 <div class="column">
 
     <div class="wrapper">
-      <div class="form_container" id="back1">
+      <div class="form_container">
 
       <div class="row">
   <div class="column">
@@ -435,7 +435,11 @@ td, th {
                                 <table id="datatablesSimple">
                                 <thead>
                                         <tr>
-
+                                            <th>ID</th>
+                                            <th>Student ID</th>
+                                            <th>Name</th>
+                                            <th>Mobile Number</th>
+                                            <th>Course</th>
                                             <th>Date</th>
                                             <th>Honorable Dismissal</th>
                                             <th>Special Order</th>
@@ -456,7 +460,11 @@ td, th {
                                     </thead>
                                     <tfoot>
                                         <tr>
-
+                                            <th>ID</th>
+                                            <th>Student ID</th>
+                                            <th>Name</th>
+                                            <th>Mobile Number</th>
+                                            <th>Course</th>
                                             <th>Date</th>
                                             <th>Honorable Dismissal</th>
                                             <th>Special Order</th>
@@ -476,177 +484,31 @@ td, th {
                                         </tr>
                                     </tfoot>
                                     <tbody>
+                                    @foreach($doc as $doc)
                                         <tr>
-
-                                            <td>Aug 23 2022</td>
-                                            <td id="item">Honorable Dismissal</td>
-                                            <td id="item">Special Order</td>
-                                            <td id="item">Diploma</td>
-                                            <td id="item">TOR</td>
-                                            <td id="item">Form137</td>
-                                            <td id="item">GoodMoral</td>
-                                            <td id="item">UnitEarned</td>
-                                            <td id="item">Graduation</td>
-                                            <td id="item">GWA</td>
-                                            <td id="item">Grades</td>
-                                            <td id="item">Auth_Transcript</td>
-                                            <td id="item">Auth_Special_Order</td>
-                                            <td id="item">Auth_Diploma</td>
-                                            <td>Purpose</td>
-                                            <td>Status</td>
+                                            <td>{{$doc->id}}</td>
+                                            <td>{{$doc->stud_id}}</td>
+                                            <td>{{$doc->Name}}</td>
+                                            <td>{{$doc->cp}}</td>
+                                            <td>{{$doc->Course}}</td>
+                                            <td>{{$doc->date}}</td>
+                                            <td id="item">{{$doc->HonDismissal}}</td>
+                                            <td id="item">{{$doc->Special_Order}}</td>
+                                            <td id="item">{{$doc->Diploma}}</td>
+                                            <td id="item">{{$doc->TOR}}</td>
+                                            <td id="item">{{$doc->Form137}}</td>
+                                            <td id="item">{{$doc->GoodMoral}}</td>
+                                            <td id="item">{{$doc->UnitEarned}}</td>
+                                            <td id="item">{{$doc->Graduation}}</td>
+                                            <td id="item">{{$doc->GWA}}</td>
+                                            <td id="item">{{$doc->Grades}}</td>
+                                            <td id="item">{{$doc->Auth_Transcript}}</td>
+                                            <td id="item">{{$doc->Auth_Special_Order}}</td>
+                                            <td id="item">{{$doc->Auth_Diploma}}</td>
+                                            <td>{{$doc->Purpose}}</td>
+                                            <td>{{$doc->Status}}</td>
                                         </tr>
-                                        <tr>
-
-                                       <td>Aug 23 2022</td>
-                                       <td id="item">Honorable Dismissal</td>
-                                       <td id="item">Special Order</td>
-                                       <td id="item">Diploma</td>
-                                       <td id="item">TOR</td>
-                                       <td id="item">Form137</td>
-                                       <td id="item">GoodMoral</td>
-                                       <td id="item">UnitEarned</td>
-                                       <td id="item">Graduation</td>
-                                       <td id="item">GWA</td>
-                                       <td id="item">Grades</td>
-                                       <td id="item">Auth_Transcript</td>
-                                       <td id="item">Auth_Special_Order</td>
-                                       <td id="item">Auth_Diploma</td>
-                                       <td>Purpose</td>
-                                       <td>Status</td>
-                                   </tr>
-                                   <tr>
-
-                                       <td>Aug 23 2022</td>
-                                       <td id="item">Honorable Dismissal</td>
-                                       <td id="item">Special Order</td>
-                                       <td id="item">Diploma</td>
-                                       <td id="item">TOR</td>
-                                       <td id="item">Form137</td>
-                                       <td id="item">GoodMoral</td>
-                                       <td id="item">UnitEarned</td>
-                                       <td id="item">Graduation</td>
-                                       <td id="item">GWA</td>
-                                       <td id="item">Grades</td>
-                                       <td id="item">Auth_Transcript</td>
-                                       <td id="item">Auth_Special_Order</td>
-                                       <td id="item">Auth_Diploma</td>
-                                       <td>Purpose</td>
-                                       <td>Status</td>
-                                   </tr>
-                                   <tr>
-
-                                       <td>Aug 23 2022</td>
-                                       <td id="item">Honorable Dismissal</td>
-                                       <td id="item">Special Order</td>
-                                       <td id="item">Diploma</td>
-                                       <td id="item">TOR</td>
-                                       <td id="item">Form137</td>
-                                       <td id="item">GoodMoral</td>
-                                       <td id="item">UnitEarned</td>
-                                       <td id="item">Graduation</td>
-                                       <td id="item">GWA</td>
-                                       <td id="item">Grades</td>
-                                       <td id="item">Auth_Transcript</td>
-                                       <td id="item">Auth_Special_Order</td>
-                                       <td id="item">Auth_Diploma</td>
-                                       <td>Purpose</td>
-                                       <td>Status</td>
-                                   </tr>
-                                   <tr>
-
-                                       <td>Aug 23 2022</td>
-                                       <td id="item">Honorable Dismissal</td>
-                                       <td id="item">Special Order</td>
-                                       <td id="item">Diploma</td>
-                                       <td id="item">TOR</td>
-                                       <td id="item">Form137</td>
-                                       <td id="item">GoodMoral</td>
-                                       <td id="item">UnitEarned</td>
-                                       <td id="item">Graduation</td>
-                                       <td id="item">GWA</td>
-                                       <td id="item">Grades</td>
-                                       <td id="item">Auth_Transcript</td>
-                                       <td id="item">Auth_Special_Order</td>
-                                       <td id="item">Auth_Diploma</td>
-                                       <td>Purpose</td>
-                                       <td>Status</td>
-                                   </tr>
-                                   <tr>
-
-                                       <td>Aug 23 2022</td>
-                                       <td id="item">Honorable Dismissal</td>
-                                       <td id="item">Special Order</td>
-                                       <td id="item">Diploma</td>
-                                       <td id="item">TOR</td>
-                                       <td id="item">Form137</td>
-                                       <td id="item">GoodMoral</td>
-                                       <td id="item">UnitEarned</td>
-                                       <td id="item">Graduation</td>
-                                       <td id="item">GWA</td>
-                                       <td id="item">Grades</td>
-                                       <td id="item">Auth_Transcript</td>
-                                       <td id="item">Auth_Special_Order</td>
-                                       <td id="item">Auth_Diploma</td>
-                                       <td>Purpose</td>
-                                       <td>Status</td>
-                                   </tr>
-                                   <tr>
-
-                                       <td>Aug 23 2022</td>
-                                       <td id="item">Honorable Dismissal</td>
-                                       <td id="item">Special Order</td>
-                                       <td id="item">Diploma</td>
-                                       <td id="item">TOR</td>
-                                       <td id="item">Form137</td>
-                                       <td id="item">GoodMoral</td>
-                                       <td id="item">UnitEarned</td>
-                                       <td id="item">Graduation</td>
-                                       <td id="item">GWA</td>
-                                       <td id="item">Grades</td>
-                                       <td id="item">Auth_Transcript</td>
-                                       <td id="item">Auth_Special_Order</td>
-                                       <td id="item">Auth_Diploma</td>
-                                       <td>Purpose</td>
-                                       <td>Status</td>
-                                   </tr>
-                                   <tr>
-
-                                       <td>Aug 23 2022</td>
-                                       <td id="item">Honorable Dismissal</td>
-                                       <td id="item">Special Order</td>
-                                       <td id="item">Diploma</td>
-                                       <td id="item">TOR</td>
-                                       <td id="item">Form137</td>
-                                       <td id="item">GoodMoral</td>
-                                       <td id="item">UnitEarned</td>
-                                       <td id="item">Graduation</td>
-                                       <td id="item">GWA</td>
-                                       <td id="item">Grades</td>
-                                       <td id="item">Auth_Transcript</td>
-                                       <td id="item">Auth_Special_Order</td>
-                                       <td id="item">Auth_Diploma</td>
-                                       <td>Purpose</td>
-                                       <td>Status</td>
-                                   </tr>
-                                   <tr>
-
-                                       <td>Aug 23 2022</td>
-                                       <td id="item">Honorable Dismissal</td>
-                                       <td id="item">Special Order</td>
-                                       <td id="item">Diploma</td>
-                                       <td id="item">TOR</td>
-                                       <td id="item">Form137</td>
-                                       <td id="item">GoodMoral</td>
-                                       <td id="item">UnitEarned</td>
-                                       <td id="item">Graduation</td>
-                                       <td id="item">GWA</td>
-                                       <td id="item">Grades</td>
-                                       <td id="item">Auth_Transcript</td>
-                                       <td id="item">Auth_Special_Order</td>
-                                       <td id="item">Auth_Diploma</td>
-                                       <td>Purpose</td>
-                                       <td>Status</td>
-                                   </tr>
+                                    @endforeach
                                     </tbody>
 
                                 </table>
