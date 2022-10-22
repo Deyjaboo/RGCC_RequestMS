@@ -154,11 +154,21 @@
 	</div>
         </div>
       <br>
-  <h5 class="add">Enrolled Student: <b id="mark">{{$num}}</b></h5>
 
+      
+  <h5 class="add">Enrolled Student: <b id="mark">{{$num}}</b></h5>
+  
 
     <div class="wrapper">
-
+    @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         @if(session()->has('message'))
             <div class="alert alert-success">
                 {{ session()->get('message') }}
@@ -243,12 +253,12 @@
             <div class="form_wrap fullname">
                 <div class="form_item">
                     <label>Student ID<span class="text-danger"></span></label>
-                    <input type="text" name="EditStudentId" id="EditStudentId" class="form-control" placeholder="Student ID" required>
+                    <input type="text" name="StudentId" id="EditStudentId" class="form-control" placeholder="Student ID" required>
                 </div>
 
                 <div class="form_item">
                     <label>First Name<span class="text-danger"></span></label>
-                    <input type="text" name="EditFirstName" id="EditFirstName"  class="form-control" placeholder="Enter First Name" required>
+                    <input type="text" name="FirstName" id="EditFirstName"  class="form-control" placeholder="Enter First Name" required>
                 </div>
                 </div>
 
@@ -256,7 +266,7 @@
                 <div class="form_wrap fullname">
                 <div class="form_item">
                     <label>Last Name<span class="text-danger"></span></label>
-                    <input type="text" name="EditLastName" id="EditLastName" class="form-control" placeholder="Enter Last Name" required>
+                    <input type="text" name="LastName" id="EditLastName" class="form-control" placeholder="Enter Last Name" required>
                 </div>
                 <div class="form_item">
                     <label>MiddleName<span class="text-danger"></span></label>
@@ -324,8 +334,8 @@
             }).get();
             $('#EditStudentId').val(data[1]);
             $('#EditFirstName').val(data[2]);
-            $('#EditLastName').val(data[3]);
-            $('#EditMiddleName').val(data[4]);
+            $('#EditLastName').val(data[4]);
+            $('#EditMiddleName').val(data[3]);
             $('#EditSuffix').val(data[5]);
             $('#EditCourse').val(data[6]);
             $('#EditYear').val(data[7]);

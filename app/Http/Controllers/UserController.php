@@ -35,7 +35,11 @@ class UserController extends Controller
 
     public function update_student(Request $request, $id)
     {
-
+        $request->validate([
+            'StudentId' => ['required', 'min:7'],
+            'FirstName' => ['required', 'string', 'max:255', 'regex:/^([^0-9]*)$/'],
+            'LastName' => ['required', 'string', 'max:255','regex:/^([^0-9]*)$/'],
+        ]);
         if($request->input('EditMiddleName') == ""){
             $MiddleName = " ";
         }else{
@@ -47,9 +51,9 @@ class UserController extends Controller
             $Suffix = $request->input('EditSuffix');
         }
 
-            $StudentId = $request->input('EditStudentId');
-            $FirstName = $request->input('EditFirstName');
-            $LastName = $request->input('EditLastName');
+            $StudentId = $request->input('StudentId');
+            $FirstName = $request->input('FirstName');
+            $LastName = $request->input('LastName');
             $MobileNumber = $request->input('EditMobileNumber');
             $Course = $request->input('EditCourse');
             $Year = $request->input('EditYear');
