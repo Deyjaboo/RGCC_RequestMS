@@ -170,7 +170,7 @@
                                 <table id="datatablesSimple" class="TableData">
                                     <thead>
                                         <tr>
-                                            <th></th>
+                                            <th>Account No.</th>
                                             <th>Student ID</th>
                                             <th>First Name</th>
                                             <th>Middle Name</th>
@@ -184,7 +184,7 @@
                                     </thead>
                                      <tfoot>
                                         <tr>
-                                            <th></th>
+                                            <th>Account No.</th>
                                             <th>Student ID</th>
                                             <th>First Name</th>
                                             <th>Middle Name</th>

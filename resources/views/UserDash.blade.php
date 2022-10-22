@@ -432,58 +432,35 @@ td, th {
   <br>
 
   <div class="card-body">
-                                <table id="datatablesSimple">
-                                <thead>
+                                <table id="datatablesSimple" class="TableData">
+                                    <thead>
                                         <tr>
-                                            <th>ID</th>
+                                            <th>Request ID</th>
                                             <th>Student ID</th>
                                             <th>Name</th>
                                             <th>Mobile Number</th>
                                             <th>Course</th>
                                             <th>Date</th>
-                                            <th>Honorable Dismissal</th>
-                                            <th>Special Order</th>
-                                            <th>Diploma</th>
-                                            <th>Transcript Of Record</th>
-                                            <th>Form137</th>
-                                            <th>Good Moral</th>
-                                            <th>Unit Earned</th>
-                                            <th>Graduation</th>
-                                            <th>GWA</th>
-                                            <th>Grades</th>
-                                            <th>Authenticate Transcript</th>
-                                            <th>Authenticate Special_Order</th>
-                                            <th>Authenticate Diploma</th>
+                                            <th>Requested Documnet</th>
                                             <th>Purpose</th>
                                             <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>ID</th>
+                                        <th>Request ID</th>
                                             <th>Student ID</th>
                                             <th>Name</th>
                                             <th>Mobile Number</th>
                                             <th>Course</th>
                                             <th>Date</th>
-                                            <th>Honorable Dismissal</th>
-                                            <th>Special Order</th>
-                                            <th>Diploma</th>
-                                            <th>Transcript Of Record</th>
-                                            <th>Form137</th>
-                                            <th>Good Moral</th>
-                                            <th>Unit Earned</th>
-                                            <th>Graduation</th>
-                                            <th>GWA</th>
-                                            <th>Grades</th>
-                                            <th>Authenticate Transcript</th>
-                                            <th>Authenticate Special_Order</th>
-                                            <th>Authenticate Diploma</th>
+                                            <th>Requested Documnet</th>
                                             <th>Purpose</th>
                                             <th>Status</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
+                                    
                                     @foreach($doc as $doc)
                                         <tr>
                                             <td>{{$doc->id}}</td>
@@ -492,25 +469,122 @@ td, th {
                                             <td>{{$doc->cp}}</td>
                                             <td>{{$doc->Course}}</td>
                                             <td>{{$doc->date}}</td>
-                                            <td id="item">{{$doc->HonDismissal}}</td>
-                                            <td id="item">{{$doc->Special_Order}}</td>
-                                            <td id="item">{{$doc->Diploma}}</td>
-                                            <td id="item">{{$doc->TOR}}</td>
-                                            <td id="item">{{$doc->Form137}}</td>
-                                            <td id="item">{{$doc->GoodMoral}}</td>
-                                            <td id="item">{{$doc->UnitEarned}}</td>
-                                            <td id="item">{{$doc->Graduation}}</td>
-                                            <td id="item">{{$doc->GWA}}</td>
-                                            <td id="item">{{$doc->Grades}}</td>
-                                            <td id="item">{{$doc->Auth_Transcript}}</td>
-                                            <td id="item">{{$doc->Auth_Special_Order}}</td>
-                                            <td id="item">{{$doc->Auth_Diploma}}</td>
+                                            <td>{{$doc->HonDismissal}} 
+                                           
+                                            @if ($doc->Special_Order != " ")
+                                                @if ($doc->HonDismissal != " ")
+                                                ,{{$doc->Special_Order}}
+                                                @else
+                                                {{$doc->Special_Order}}
+                                                @endif
+                                            @else
+                                            @endif
+
+                                            @if ($doc->Diploma != " ")
+                                                @if ($doc->HonDismissal != " " or $doc->Special_Order != " ")
+                                                ,{{$doc->Diploma}}
+                                                @else
+                                                {{$doc->Diploma}}
+                                                @endif
+                                            @else
+                                            @endif
+
+                                            @if ($doc->TOR != " ")
+                                                @if ($doc->HonDismissal != " " or $doc->Special_Order != " " or $doc->Diploma != " ")
+                                                ,{{$doc->TOR}}
+                                                @else
+                                                {{$doc->TOR}}
+                                                @endif
+                                            @else
+                                            @endif
+
+                                            @if ($doc->Form137 != " ")
+                                                @if ($doc->HonDismissal != " " or $doc->Special_Order != " " or $doc->Diploma != " " or $doc->TOR != " ")
+                                                ,{{$doc->Form137}}
+                                                @else
+                                                {{$doc->Form137}}
+                                                @endif
+                                            @else
+                                            @endif
+
+                                            @if ($doc->GoodMoral != " ")
+                                                @if ($doc->HonDismissal != " " or $doc->Special_Order != " " or $doc->Diploma != " " or $doc->TOR != " " or $doc->Form137 != " ")
+                                                ,{{$doc->GoodMoral}}
+                                                @else
+                                                {{$doc->GoodMoral}}
+                                                @endif
+                                            @else
+                                            @endif
+
+                                            @if ($doc->UnitEarned != " ")
+                                                @if ($doc->HonDismissal != " " or $doc->Special_Order != " " or $doc->Diploma != " " or $doc->TOR != " " or $doc->Form137 != " " or $doc->GoodMoral != " ")
+                                                ,{{$doc->UnitEarned}}
+                                                @else
+                                                {{$doc->UnitEarned}}
+                                                @endif
+                                            @else
+                                            @endif
+
+                                            @if ($doc->Graduation != " ")
+                                                @if ($doc->HonDismissal != " " or $doc->Special_Order != " " or $doc->Diploma != " " or $doc->TOR != " " or $doc->Form137 != " " or $doc->GoodMoral != " " or $doc->UnitEarned != " ")
+                                                ,{{$doc->Graduation}}
+                                                @else
+                                                {{$doc->Graduation}}
+                                                @endif
+                                            @else
+                                            @endif
+
+                                            @if ($doc->GWA != " ")
+                                                @if ($doc->HonDismissal != " " or $doc->Special_Order != " " or $doc->Diploma != " " or $doc->TOR != " " or $doc->Form137 != " " or $doc->GoodMoral != " " or $doc->UnitEarned != " " or $doc->Graduation != " ")
+                                                ,{{$doc->GWA}}
+                                                @else
+                                                {{$doc->GWA}}
+                                                @endif
+                                            @else
+                                            @endif
+
+                                            @if ($doc->Grades != " ")
+                                                @if ($doc->HonDismissal != " " or $doc->Special_Order != " " or $doc->Diploma != " " or $doc->TOR != " " or $doc->Form137 != " " or $doc->GoodMoral != " " or $doc->UnitEarned != " " or $doc->Graduation != " " or $doc->GWA != " ")
+                                                ,{{$doc->Grades}}
+                                                @else
+                                                {{$doc->Grades}}
+                                                @endif
+                                            @else
+                                            @endif
+
+                                            @if ($doc->Auth_Transcript != " ")
+                                                @if ($doc->HonDismissal != " " or $doc->Special_Order != " " or $doc->Diploma != " " or $doc->TOR != " " or $doc->Form137 != " " or $doc->GoodMoral != " " or $doc->UnitEarned != " " or $doc->Graduation != " " or $doc->GWA != " " or $doc->Grades != " ")
+                                                ,{{$doc->Auth_Transcript}}
+                                                @else
+                                                {{$doc->Auth_Transcript}}
+                                                @endif
+                                            @else
+                                            @endif
+
+                                            @if ($doc->Auth_Special_Order != " ")
+                                                @if ($doc->HonDismissal != " " or $doc->Special_Order != " " or $doc->Diploma != " " or $doc->TOR != " " or $doc->Form137 != " " or $doc->GoodMoral != " " or $doc->UnitEarned != " " or $doc->Graduation != " " or $doc->GWA != " " or $doc->Grades != " " or $doc->Auth_Transcript != " ")
+                                                ,{{$doc->Auth_Special_Order}}
+                                                @else
+                                                {{$doc->Auth_Special_Order}}
+                                                @endif
+                                            @else
+                                            @endif
+
+                                            @if ($doc->Auth_Diploma != " ")
+                                                @if ($doc->HonDismissal != " " or $doc->Special_Order != " " or $doc->Diploma != " " or $doc->TOR != " " or $doc->Form137 != " " or $doc->GoodMoral != " " or $doc->UnitEarned != " " or $doc->Graduation != " " or $doc->GWA != " " or $doc->Grades != " " or $doc->Auth_Transcript != " " or $doc->Auth_Special_Order != " ")
+                                                ,{{$doc->Auth_Diploma}}
+                                                @else
+                                                {{$doc->Auth_Diploma}}
+                                                @endif
+                                            @else
+                                            @endif
+                                            
+                                            </td> 
                                             <td>{{$doc->Purpose}}</td>
                                             <td>{{$doc->Status}}</td>
                                         </tr>
                                     @endforeach
                                     </tbody>
-
                                 </table>
                             </div>
 

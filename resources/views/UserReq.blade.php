@@ -215,8 +215,7 @@ body{
 
           <b>
             <li><a href="UserDash">{{Auth::user()->First_Name}} {{Auth::user()->Middle_Name[0]}}. {{Auth::user()->Last_Name}} {{Auth::user()->suffix}}</a></li>
-            <li><a href="#">LogOut</a></li>
-            
+            <!-- <li><a href="#">LogOut</a></li> -->
             </b>
         </ul>
     </nav>
@@ -286,7 +285,7 @@ body{
 
         <div class="col-md-6 p-6">
         <div class="form-check">
-                <input class="form-check-input" name="Hon_Dismissal" type="checkbox" value="Dismissal" id="flexCheckDefault">
+                <input class="form-check-input" name="Hon_Dismissal" type="checkbox" value="Honorable Dismissal" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">
                 Honorable Dismissal
                 </label>
@@ -294,7 +293,7 @@ body{
         </div>
 
         <div class="col-md-6 p-6">
-                <input class="form-check-input" name="TOR" type="checkbox" value="TOR" id="flexCheckChecked">
+                <input class="form-check-input" name="TOR" type="checkbox" value="Transcript of Record" id="flexCheckChecked">
                 <label class="form-check-label" for="flexCheckChecked">
                 Transcript of Record
                 </label>
@@ -390,21 +389,21 @@ body{
 
         <div class="row">
         <div class="col-md-4 p-4">
-                <input class="form-check-input" name="auth_Transcript" type="checkbox" value="Transcript" id="flexCheckChecked">
+                <input class="form-check-input" name="auth_Transcript" type="checkbox" value="Authenticated Transcript" id="flexCheckChecked">
                 <label class="form-check-label" for="flexCheckChecked">
                 Transcript
                 </label>
         </div>
 
         <div class="col-md-4 p-4">
-                <input class="form-check-input" name="auth_SO" type="checkbox" value="Special Order" id="flexCheckChecked">
+                <input class="form-check-input" name="auth_SO" type="checkbox" value="Authenticated Special Order" id="flexCheckChecked">
                 <label class="form-check-label" for="flexCheckChecked">
                 Special Order
                 </label>
         </div>
 
         <div class="col-md-4 p-4">
-                <input class="form-check-input"name="auth_Diploma" type="checkbox" value="Diploma" id="flexCheckChecked">
+                <input class="form-check-input"name="auth_Diploma" type="checkbox" value="Authenticated Diploma" id="flexCheckChecked">
                 <label class="form-check-label" for="flexCheckChecked">
                 Diploma
                 </label>

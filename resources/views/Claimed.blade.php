@@ -100,7 +100,7 @@
 
     <section class="home">
         <div class="text">Claimed Documents</div>
-        
+<!--         
         <div class="row">
        
         <div class="main-section">
@@ -141,7 +141,7 @@
             </div>
 		</div>
 	</div>
-        </div>
+        </div> -->
       <br>
     <div class="wrapper">
      @if(session()->has('message'))
@@ -151,58 +151,37 @@
         @endif
     <div class="form_container">
                         <div class="card-body">
-                                <table id="datatablesSimple">
+                        <table id="datatablesSimple" class="TableData">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
+                                            <th>Request ID</th>
                                             <th>Student ID</th>
                                             <th>Name</th>
                                             <th>Mobile Number</th>
                                             <th>Course</th>
                                             <th>Date</th>
-                                            <th>Honorable Dismissal</th>
-                                            <th>Special Order</th>
-                                            <th>Diploma</th>
-                                            <th>Transcript Of Record</th>
-                                            <th>Form137</th>
-                                            <th>Good Moral</th>
-                                            <th>Unit Earned</th>
-                                            <th>Graduation</th>
-                                            <th>GWA</th>
-                                            <th>Grades</th>
-                                            <th>Authenticate Transcript</th>
-                                            <th>Authenticate Special_Order</th>
-                                            <th>Authenticate Diploma</th>
+                                            <th>Requested Documnet</th>
                                             <th>Purpose</th>
                                             <th>Status</th>
+                                            <th>Processes</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>ID</th>
+                                        <th>Request ID</th>
                                             <th>Student ID</th>
                                             <th>Name</th>
                                             <th>Mobile Number</th>
                                             <th>Course</th>
                                             <th>Date</th>
-                                            <th>Honorable Dismissal</th>
-                                            <th>Special Order</th>
-                                            <th>Diploma</th>
-                                            <th>Transcript Of Record</th>
-                                            <th>Form137</th>
-                                            <th>Good Moral</th>
-                                            <th>Unit Earned</th>
-                                            <th>Graduation</th>
-                                            <th>GWA</th>
-                                            <th>Grades</th>
-                                            <th>Authenticate Transcript</th>
-                                            <th>Authenticate Special_Order</th>
-                                            <th>Authenticate Diploma</th>
+                                            <th>Requested Documnet</th>
                                             <th>Purpose</th>
                                             <th>Status</th>
+                                            <th>Processes</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
+                                    
                                     @foreach($data as $data)
                                         <tr>
                                             <td>{{$data->id}}</td>
@@ -211,21 +190,124 @@
                                             <td>{{$data->cp}}</td>
                                             <td>{{$data->Course}}</td>
                                             <td>{{$data->date}}</td>
-                                            <td id="item">{{$data->HonDismissal}}</td>
-                                            <td id="item">{{$data->Special_Order}}</td>
-                                            <td id="item">{{$data->Diploma}}</td>
-                                            <td id="item">{{$data->TOR}}</td>
-                                            <td id="item">{{$data->Form137}}</td>
-                                            <td id="item">{{$data->GoodMoral}}</td>
-                                            <td id="item">{{$data->UnitEarned}}</td>
-                                            <td id="item">{{$data->Graduation}}</td>
-                                            <td id="item">{{$data->GWA}}</td>
-                                            <td id="item">{{$data->Grades}}</td>
-                                            <td id="item">{{$data->Auth_Transcript}}</td>
-                                            <td id="item">{{$data->Auth_Special_Order}}</td>
-                                            <td id="item">{{$data->Auth_Diploma}}</td>
+                                            <td>{{$data->HonDismissal}} 
+                                           
+                                            @if ($data->Special_Order != " ")
+                                                @if ($data->HonDismissal != " ")
+                                                ,{{$data->Special_Order}}
+                                                @else
+                                                {{$data->Special_Order}}
+                                                @endif
+                                            @else
+                                            @endif
+
+                                            @if ($data->Diploma != " ")
+                                                @if ($data->HonDismissal != " " or $data->Special_Order != " ")
+                                                ,{{$data->Diploma}}
+                                                @else
+                                                {{$data->Diploma}}
+                                                @endif
+                                            @else
+                                            @endif
+
+                                            @if ($data->TOR != " ")
+                                                @if ($data->HonDismissal != " " or $data->Special_Order != " " or $data->Diploma != " ")
+                                                ,{{$data->TOR}}
+                                                @else
+                                                {{$data->TOR}}
+                                                @endif
+                                            @else
+                                            @endif
+
+                                            @if ($data->Form137 != " ")
+                                                @if ($data->HonDismissal != " " or $data->Special_Order != " " or $data->Diploma != " " or $data->TOR != " ")
+                                                ,{{$data->Form137}}
+                                                @else
+                                                {{$data->Form137}}
+                                                @endif
+                                            @else
+                                            @endif
+
+                                            @if ($data->GoodMoral != " ")
+                                                @if ($data->HonDismissal != " " or $data->Special_Order != " " or $data->Diploma != " " or $data->TOR != " " or $data->Form137 != " ")
+                                                ,{{$data->GoodMoral}}
+                                                @else
+                                                {{$data->GoodMoral}}
+                                                @endif
+                                            @else
+                                            @endif
+
+                                            @if ($data->UnitEarned != " ")
+                                                @if ($data->HonDismissal != " " or $data->Special_Order != " " or $data->Diploma != " " or $data->TOR != " " or $data->Form137 != " " or $data->GoodMoral != " ")
+                                                ,{{$data->UnitEarned}}
+                                                @else
+                                                {{$data->UnitEarned}}
+                                                @endif
+                                            @else
+                                            @endif
+
+                                            @if ($data->Graduation != " ")
+                                                @if ($data->HonDismissal != " " or $data->Special_Order != " " or $data->Diploma != " " or $data->TOR != " " or $data->Form137 != " " or $data->GoodMoral != " " or $data->UnitEarned != " ")
+                                                ,{{$data->Graduation}}
+                                                @else
+                                                {{$data->Graduation}}
+                                                @endif
+                                            @else
+                                            @endif
+
+                                            @if ($data->GWA != " ")
+                                                @if ($data->HonDismissal != " " or $data->Special_Order != " " or $data->Diploma != " " or $data->TOR != " " or $data->Form137 != " " or $data->GoodMoral != " " or $data->UnitEarned != " " or $data->Graduation != " ")
+                                                ,{{$data->GWA}}
+                                                @else
+                                                {{$data->GWA}}
+                                                @endif
+                                            @else
+                                            @endif
+
+                                            @if ($data->Grades != " ")
+                                                @if ($data->HonDismissal != " " or $data->Special_Order != " " or $data->Diploma != " " or $data->TOR != " " or $data->Form137 != " " or $data->GoodMoral != " " or $data->UnitEarned != " " or $data->Graduation != " " or $data->GWA != " ")
+                                                ,{{$data->Grades}}
+                                                @else
+                                                {{$data->Grades}}
+                                                @endif
+                                            @else
+                                            @endif
+
+                                            @if ($data->Auth_Transcript != " ")
+                                                @if ($data->HonDismissal != " " or $data->Special_Order != " " or $data->Diploma != " " or $data->TOR != " " or $data->Form137 != " " or $data->GoodMoral != " " or $data->UnitEarned != " " or $data->Graduation != " " or $data->GWA != " " or $data->Grades != " ")
+                                                ,{{$data->Auth_Transcript}}
+                                                @else
+                                                {{$data->Auth_Transcript}}
+                                                @endif
+                                            @else
+                                            @endif
+
+                                            @if ($data->Auth_Special_Order != " ")
+                                                @if ($data->HonDismissal != " " or $data->Special_Order != " " or $data->Diploma != " " or $data->TOR != " " or $data->Form137 != " " or $data->GoodMoral != " " or $data->UnitEarned != " " or $data->Graduation != " " or $data->GWA != " " or $data->Grades != " " or $data->Auth_Transcript != " ")
+                                                ,{{$data->Auth_Special_Order}}
+                                                @else
+                                                {{$data->Auth_Special_Order}}
+                                                @endif
+                                            @else
+                                            @endif
+
+                                            @if ($data->Auth_Diploma != " ")
+                                                @if ($data->HonDismissal != " " or $data->Special_Order != " " or $data->Diploma != " " or $data->TOR != " " or $data->Form137 != " " or $data->GoodMoral != " " or $data->UnitEarned != " " or $data->Graduation != " " or $data->GWA != " " or $data->Grades != " " or $data->Auth_Transcript != " " or $data->Auth_Special_Order != " ")
+                                                ,{{$data->Auth_Diploma}}
+                                                @else
+                                                {{$data->Auth_Diploma}}
+                                                @endif
+                                            @else
+                                            @endif
+                                            
+                                            </td> 
                                             <td>{{$data->Purpose}}</td>
                                             <td>{{$data->Status}}</td>
+                                            <td>
+                                                <a href="javascript:void(0)" class="btn btn-primary" id="editbtn"><i class='bx bx-message-check' data-toggle="tooltip" title="Edit"></i></a>
+                                                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"><i class='bx bx-edit-alt'></i></button> -->
+                                                <!-- <button type="button" class="btn btn-success"><i class='bx bx-receipt'></i></button> -->
+                                            </td>
                                         </tr>
                                     @endforeach
                                     </tbody>
