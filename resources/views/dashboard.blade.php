@@ -155,9 +155,9 @@
         </div>
       <br>
 
-      
+
   <h5 class="add">Enrolled Student: <b id="mark">{{$num}}</b></h5>
-  
+
 
     <div class="wrapper">
     @if ($errors->any())

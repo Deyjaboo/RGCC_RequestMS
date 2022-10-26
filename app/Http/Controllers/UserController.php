@@ -9,7 +9,7 @@ use DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
-
+use Twilio;
 class UserController extends Controller
 {
     function user_show(){
@@ -78,12 +78,13 @@ class UserController extends Controller
 
         $Status = "Ready";
          
-      
         DB::table('docrequests')
         ->where('id', $id)
         ->update(array(
         'Status' => $Status,
         ));
+        
+        // $cp_num = DB::table('docrequests')->where('id', $id)->get();
 
         return redirect('NewRequest')->with('message','The document is ready!');
     }

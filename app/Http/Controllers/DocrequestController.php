@@ -21,9 +21,9 @@ class DocrequestController extends Controller
         // ]);
         if($request->input('Hon_Dismissal') != null or $request->input('SO') != null or $request->input('Diploma') != null or $request->input('TOR') != null or $request->input('Form137') != null or $request->input('GoodMoral') != null or
          $request->input('UnitEarned') != null or $request->input('Graduation') != null or $request->input('GWA') != null or $request->input('Grades') != null or
-         $request->input('auth_Transcript') != null or $request->input('auth_SO') != null or $request->input('auth_Diploma') != null){ 
+         $request->input('auth_Transcript') != null or $request->input('auth_SO') != null or $request->input('auth_Diploma') != null){
         //or $request->input('Enrollment') != null or $request->input('Employment') != null or $request->input('License_Exam') != null){
-       
+
         $data = new Docrequest();
         $data->stud_id = auth()->user()->student_id;
         $data->Name = auth()->user()->Last_Name . ", ". auth()->user()->First_Name . " ". auth()->user()->Middle_Name[0] . auth()->user()->suffix;
@@ -34,7 +34,7 @@ class DocrequestController extends Controller
         $createdAt = Carbon::parse(date('Y-m-d H:i:s'));
         $data->date = $createdAt->format('M d Y');
         // $data->date = date('Y-m-d H:i:s');
-       
+
         if($request->input('Hon_Dismissal') != null){
             $data->HonDismissal = $request->input('Hon_Dismissal');
         }else{
@@ -65,7 +65,7 @@ class DocrequestController extends Controller
         }else{
             $data->GoodMoral = " ";
         }
-     
+
         if($request->input('UnitEarned') != null){
             $data->UnitEarned = $request->input('UnitEarned');
         }else{
@@ -77,13 +77,13 @@ class DocrequestController extends Controller
         }else{
             $data->Graduation = " ";
         }
-        
+
         if($request->input('GWA') != null){
             $data->GWA = $request->input('GWA');
         }else{
             $data->GWA = " ";
         }
-        
+
         if($request->input('Grades') != null){
             $data->Grades = $request->input('Grades');
         }else{
@@ -94,7 +94,7 @@ class DocrequestController extends Controller
         }else{
             $data->Auth_Transcript = " ";
         }
-       
+
         if($request->input('auth_SO') != null){
             $data->Auth_Special_Order = $request->input('auth_SO');
         }else{
@@ -106,7 +106,7 @@ class DocrequestController extends Controller
         }else{
             $data->Auth_Diploma = " ";
         }
-        
+
         if($request->input('Enroll') != null){
              if($request->input('Employ') != null){
                 if($request->input('License_Exam') != null){
@@ -147,7 +147,7 @@ class DocrequestController extends Controller
         return redirect('UserReq')->with('message1','Please Fill your Request Form!');
     }
     }
-    
+
     function new_req(){
         $data = DB::table('docrequests')->where('Status', "New")->get();
         $new = DB::table('docrequests')->where('Status', "New")->count();

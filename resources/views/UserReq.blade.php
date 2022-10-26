@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>Request Form</title>
 </head>
 <style>
@@ -415,7 +416,7 @@ body{
         <div class="row">
         <div class="col-md-6 p-6">
         <div class="form-check">
-                <input class="form-check-input" name="Enroll" type="checkbox" value="Enrollment" id="flexCheckChecked">
+                <input class="form-check-input game" name="Enroll" type="checkbox" value="Enrollment" id="flexCheckChecked">
                 <label class="form-check-label" for="flexCheckChecked">
                 For Enrolment
                 </label>
@@ -423,20 +424,21 @@ body{
         </div>
 
         <div class="col-md-6 p-6">
-                <input class="form-check-input" name="Employ" type="checkbox" value="Employement" id="flexCheckChecked">
+                <input class="form-check-input game" name="Employ" type="checkbox" value="Employement" id="flexCheckChecked">
                 <label class="form-check-label" for="flexCheckChecked">
                 For Employment
                 </label>
         </div>
         </div>
-
+        <div class="row">
         <div class="col-md-6 p-6">
-                <input class="form-check-input" name="License_Exam" type="checkbox" value="Licensure Examination" id="flexCheckChecked">
+                <input class="form-check-input game" name="License_Exam" type="checkbox" value="Licensure Examination" id="flexCheckChecked">
                 <label class="form-check-label" for="flexCheckChecked">
                 For Licensure Examination
                 </label>
         </div>
-
+        </div>
+        
         <br>
         <div class="d-grid gap-3">
       <!-- <button class="btn btn-success" type="submit" id="sub">Submit</button> -->
@@ -447,7 +449,18 @@ body{
   </form>
  </div>
 </div>
-
+<script>
+    var max_limit = 1; // Max Limit
+    $(document).ready(function (){
+        $(".game:input:checkbox").each(function (index){
+            this.checked = (".game:input:checkbox" < max_limit);
+        }).change(function (){
+            if ($(".game:input:checkbox:checked").length > max_limit){
+                this.checked = false;
+            }
+        });
+    });
+</script>
 
 <script>
         const hamburger = document.querySelector(".hamburger");
@@ -473,7 +486,8 @@ function closeMenu() {
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
 </body>
 
 
-</html>
+</html>form-check-input

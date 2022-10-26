@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="css/adduser.css">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
- 
+
     <title>Add User</title>
 
 <style>
@@ -49,7 +49,7 @@ body .input{
                     <a href="dashboard"method="GET">
                             <i class='bx bx-home-alt icon' ></i>
                             <span class="text nav-text">Dashboard</span>
-                        
+
                         </a>
                     </li>
 
@@ -66,26 +66,26 @@ body .input{
                         <i class='bx bxs-file-plus icon'></i>
                             <span class="text nav-text">New Request</span>
                         </a>
-                    </li> 
+                    </li>
 
                     <li class="nav-link">
                         <a href="Claimed"method="GET">
                         <i class='bx bx-task icon'></i>
                             <span class="text nav-text">Claimed</span>
                         </a>
-                    </li> 
+                    </li>
 
                     <li class="nav-link">
                         <a href="Unclaimed">
                         <i class='bx bxs-file icon'></i>
                             <span class="text nav-text">Unclaimed </span>
                         </a>
-                    </li> 
+                    </li>
 
                   <form method="POST" action="{{ route('logout') }}">
                       @csrf
                     <li class="nav-link">
-                   
+
                     <a href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
@@ -110,11 +110,11 @@ body .input{
 
     <div class="form_wrap fullname">
       <div class="form_item">
-   
+
         <h5><label><span class="text-danger">*</span><i>Required</i></label></h5>
       </div>
     </div>
-        
+
         <br>
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -131,7 +131,7 @@ body .input{
             </div>
         @endif
   <!-- <form action="user_reg" method="post" enctype="multipart/form-data"> -->
-  <form method="POST" action="{{ route('register') }}"> 
+  <form method="POST" action="{{ route('register') }}">
             @csrf
 
 <div class="form_wrap fullname">
@@ -182,16 +182,16 @@ body .input{
 </div>
 
 <div class="form_wrap fullname">
-    
+
     <div class="form_item">
       <label>Course<span class="text-danger">*</span></label>
       <select class="form-control col-12" name="course" id="course" required>
           <option value="" selected="selected" disabled="disabled">Course</option>
           <option value="BSIT">BSIT</option>
           <option value="BSEED">BSEED</option>
-      </select>      
+      </select>
     </div>
-    
+
     <div class="form_item">
       <label>Year<span class="text-danger">*</span></label>
       <select class="form-control col-12" name="year" id="year" required>
@@ -200,12 +200,12 @@ body .input{
           <option value="2nd">2nd</option>
           <option value="3rd">3rd</option>
           <option value="4th">4th</option>
-      </select>      
+      </select>
     </div>
 </div>
-  
+
     <button id="submit" type="submit" value="Submit">Submit</button>
-  
+
   </form>
  </div>
 </div>
@@ -214,12 +214,12 @@ body .input{
  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
   Launch demo modal
 </button>  -->
-<!-- 
+<!--
 <div id="id01" class="w3-modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="w3-modal-content">
     <div class="w3-container">
-      <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright" >&times;</span> 
-     
+      <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright" >&times;</span>
+
       <div class="heading">
         <h2>Select Excel File to Import:</h2>
       </div>
