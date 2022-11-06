@@ -157,7 +157,7 @@ body{
 }
 
 .wrapper{
-  max-width: 620px;
+  max-width: 655px;
   width: 100%;
   margin: 30px auto 0;
   padding: 10px;
@@ -201,6 +201,26 @@ body{
 }
 
 
+
+
+.input-data input{
+  width: 100%;
+  height: 100%;
+  border: none;
+  font-size: 17px;
+  border-bottom: 2px solid rgba(0,0,0, 0.16);
+}
+
+
+.input-data label{
+  bottom: 10px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+#column1{
+    margin-right: 5px;
+}
 </style>
 <body>
 
@@ -412,7 +432,7 @@ body{
         </div>
         </div>
 
-       <b><p>Purpose:</p></b> 
+       <!-- <b><p>Purpose:</p></b> 
         <div class="row">
         <div class="col-md-6 p-6">
         <div class="form-check">
@@ -437,8 +457,62 @@ body{
                 For Licensure Examination
                 </label>
         </div>
-        </div>
+        </div> -->
+
+
+        <b><p>Purpose for:</p></b>
         
+
+        <div class="container-fluid">
+
+        <div class="row">
+        <div class="col-md-4 p-4">
+        <input class="form-check-input game" name="Enroll" type="checkbox" value="Enrollment" id="flexCheckChecked">
+                <label class="form-check-label" for="flexCheckChecked">
+                 Enrolment
+                </label>
+        </div>
+
+        <div class="col-md-4 p-4">
+        <input class="form-check-input game" name="Employ" type="checkbox" value="Employement" id="flexCheckChecked">
+                <label class="form-check-label" for="flexCheckChecked">
+                 Employment
+                </label>
+        </div>
+
+        <div class="col-md-4 p-4">
+        <input class="form-check-input game" name="License_Exam" type="checkbox" value="Licensure Examination" id="flexCheckChecked">
+                <label class="form-check-label" for="flexCheckChecked">
+                 Licensure Exam
+                </label>
+        </div>
+        </div>
+        </div>
+
+        <div class="container-fluid">
+        <div class="row">
+        <div class="col-md-3 p-4" >
+            <input class="form-check-input game" id="box1" name="Others" type="checkbox" value="Others" id="flexCheckChecked">
+            <label class="form-check-label" for="flexCheckChecked">
+            Others:
+            </label>   
+        </div>
+            
+        <div class="col-md-7 p-4" >
+            <div class="input-data">
+                <input type="text" id="Others" name="Others" disabled>
+            </div>
+        </div>
+      
+        </div>
+        </div>
+
+        <script>
+            document.getElementById('box1').onchange = function() {
+            document.getElementById('Others').disabled = !this.checked;
+            document.getElementById('Others').focus();
+            };
+        </script>
         <br>
         <div class="d-grid gap-3">
       <!-- <button class="btn btn-success" type="submit" id="sub">Submit</button> -->
@@ -490,4 +564,4 @@ function closeMenu() {
 </body>
 
 
-</html>form-check-input
+</html>

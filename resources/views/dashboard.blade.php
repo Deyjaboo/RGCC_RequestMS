@@ -293,9 +293,15 @@
                     <label>Course<span class="text-danger"></span></label>
                     <select class="form-control col-12" name="EditCourse" id="EditCourse" required>
                         <option value="" selected="selected" disabled="disabled">Course</option>
-                        <option value="BSIT">BSIT</option>
-                        <option value="BSEED">BSEED</option>
-                    </select>
+                        <option value="BEED">BEED</option>
+                        <option value="BSED">BSED Mathematics</option>
+                        <option value="">BSED English</option>
+                        <option value="">BSED Filipino</option>
+                        <option value="BSCM">BSCM  Major in Management</option>
+                        <option value="BSBA">BSBA Financial Management </option>
+                        <option value="">BSBA Human Resource and Development and Management</option>
+                
+                                    </select>
                     </div>
 
                     <div class="form_item">

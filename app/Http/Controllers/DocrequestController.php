@@ -107,37 +107,47 @@ class DocrequestController extends Controller
             $data->Auth_Diploma = " ";
         }
 
+        // if($request->input('Enroll') != null){
+        //      if($request->input('Employ') != null){
+        //         if($request->input('License_Exam') != null){
+        //             $data->Purpose = $request->input('Enroll').", ".$request->input('Employ').", ".$request->input('License_Exam');
+        //         }else{
+        //             $data->Purpose = $request->input('Enroll').", ".$request->input('Employ');
+        //         }
+        //      }
+        //      else{
+        //         if($request->input('License_Exam') != null){
+        //             $data->Purpose = $request->input('Enroll').", ".$request->input('License_Exam');
+        //         }else{
+        //             $data->Purpose = $request->input('Enroll');
+        //         }
+        //      }
+        // }else{
+        //     if($request->input('Employ') != null){
+        //         if($request->input('License_Exam') != null){
+        //             $data->Purpose = $request->input('Employ').", ".$request->input('License_Exam');
+        //         }else{
+        //             $data->Purpose = $request->input('Employ');
+        //         }
+        //      }
+        //      else{
+        //         if($request->input('License_Exam') != null){
+        //             $data->Purpose = $request->input('License_Exam');
+        //         }else{
+        //             $data->Purpose = " ";
+        //         }
+        //      }
+        // }
         if($request->input('Enroll') != null){
-             if($request->input('Employ') != null){
-                if($request->input('License_Exam') != null){
-                    $data->Purpose = $request->input('Enroll').", ".$request->input('Employ').", ".$request->input('License_Exam');
-                }else{
-                    $data->Purpose = $request->input('Enroll').", ".$request->input('Employ');
-                }
-             }
-             else{
-                if($request->input('License_Exam') != null){
-                    $data->Purpose = $request->input('Enroll').", ".$request->input('License_Exam');
-                }else{
-                    $data->Purpose = $request->input('Enroll');
-                }
-             }
+            $data->Purpose = $request->input('Enroll');
+        }elseif($request->input('Employ') != null){
+            $data->Purpose = $request->input('Employ');
+        }elseif($request->input('License_Exam') != null){
+            $data->Purpose = $request->input('License_Exam');
         }else{
-            if($request->input('Employ') != null){
-                if($request->input('License_Exam') != null){
-                    $data->Purpose = $request->input('Employ').", ".$request->input('License_Exam');
-                }else{
-                    $data->Purpose = $request->input('Employ');
-                }
-             }
-             else{
-                if($request->input('License_Exam') != null){
-                    $data->Purpose = $request->input('License_Exam');
-                }else{
-                    $data->Purpose = " ";
-                }
-             }
+            $data->Purpose = $request->input('Others');
         }
+
 
         $data->Status = "New";
         $data->save();
