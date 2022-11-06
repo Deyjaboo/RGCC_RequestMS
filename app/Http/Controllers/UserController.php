@@ -84,7 +84,21 @@ class UserController extends Controller
         'Status' => $Status,
         ));
         
-        // $cp_num = DB::table('docrequests')->where('id', $id)->get();
+        $cp_num = DB::table('docrequests')->where('id', $id)->value('cp');
+        
+        $basic  = new \Vonage\Client\Credentials\Basic("5a78e6b6", "Zc9veS3MxOYa5u9i");
+        $client = new \Vonage\Client($basic);
+
+        $response = $client->sms()->send(
+            new \Vonage\SMS\Message\SMS($cp_num, "RGCC", 'Your document is ready for release!')
+        );
+        $message = $response->current();
+
+        // if ($message->getStatus() == 0) {
+        //     echo "The message was sent successfully\n";
+        // } else {
+        //     echo "The message failed with status: " . $message->getStatus() . "\n";
+        // }
 
         return redirect('NewRequest')->with('message','The document is ready!');
     }

@@ -174,4 +174,21 @@ class DocrequestController extends Controller
 
         return view('Unclaimed',['data'=>$data,'new'=>$new ,'claimed'=>$claimed ,'ready'=>$ready]);
     }
+    // function sms_send(){
+    //     $basic  = new \Vonage\Client\Credentials\Basic("5a78e6b6", "Zc9veS3MxOYa5u9i");
+    //     $client = new \Vonage\Client($basic);
+
+    //     $response = $client->sms()->send(
+    //         new \Vonage\SMS\Message\SMS("639389214119", "RGCC", 'Your document is ready for release!')
+    //     );
+        
+    //     $message = $response->current();
+        
+    //     if ($message->getStatus() == 0) {
+    //         echo "The message was sent successfully\n";
+    //     } else {
+    //         echo "The message failed with status: " . $message->getStatus() . "\n";
+    //     }
+    // }
+
 }

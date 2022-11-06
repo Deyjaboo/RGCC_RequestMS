@@ -42,6 +42,7 @@ class RegisteredUserController extends Controller
             'Last_Name' => ['required', 'string', 'max:255','regex:/^([^0-9]*)$/'],
             // 'email' => ['required', 'string', 'max:255', 'unique:users'],
             // 'password' => ['required'],
+            'Cp_number' => ['required', 'min:13','max:13'],
         ]);
         if(is_null($request->suffix)){
             $EXTname = " ";
@@ -53,6 +54,8 @@ class RegisteredUserController extends Controller
         }else{
             $Mname = $request->Middle_Name;
         }
+        
+        $cp = trim($request->Cp_number,"+");
         $user = User::create([
             'student_id'=> $request->student_id,
             'First_Name'=> $request->First_Name,
@@ -66,7 +69,7 @@ class RegisteredUserController extends Controller
             'password'=> Hash::make($request->Password),
             'year'=> $request->year,
             'role'=> "user",
-            'cp_num'=> $request->CP_number,
+            'cp_num'=> $cp,
         ]);
 
         event(new Registered($user));

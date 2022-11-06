@@ -61,10 +61,11 @@ Route::middleware('auth','isAdmin')->group(function () {
     Route::get('NewRequest',[DocrequestController::class ,'new_req']);
     Route::get('Claimed',[DocrequestController::class ,'claimed']);
     Route::get('Unclaimed',[DocrequestController::class ,'unclaimed']);
-
-
+ 
+    Route::get('sms',[DocrequestController::class ,'sms_send']);
 
 });
+
 //  Route::get('/dashboard', function () {
 //      return view('dashboard');
 //  })->middleware(['auth','isAdmin'])->name('dashboard');

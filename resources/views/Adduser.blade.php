@@ -166,7 +166,7 @@ body .input{
     </div>
     <div class="form_item">
       <label>Mobile Number<span class="text-danger">*</span></label>
-      <input type="text"  name="CP_number" id="CP_number" class="form-control" placeholder="+639......" required>
+      <input type="text"  name="Cp_number" id="Cp_number" class="form-control" placeholder="+639......" required>
     </div>
 </div>
 
