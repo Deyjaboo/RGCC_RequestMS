@@ -57,7 +57,7 @@ class UserController extends Controller
             $MobileNumber = $request->input('EditMobileNumber');
             $Course = $request->input('EditCourse');
             $Year = $request->input('EditYear');
-      
+
         DB::table('users')
         ->where('id', $id)
         ->update(array(
@@ -77,15 +77,15 @@ class UserController extends Controller
     {
 
         $Status = "Ready";
-         
+
         DB::table('docrequests')
         ->where('id', $id)
         ->update(array(
         'Status' => $Status,
         ));
-        
+
         $cp_num = DB::table('docrequests')->where('id', $id)->value('cp');
-        
+
         $basic  = new \Vonage\Client\Credentials\Basic("5a78e6b6", "Zc9veS3MxOYa5u9i");
         $client = new \Vonage\Client($basic);
 
@@ -106,8 +106,8 @@ class UserController extends Controller
     {
 
         $Status = "Claimed";
-         
-      
+
+
         DB::table('docrequests')
         ->where('id', $id)
         ->update(array(

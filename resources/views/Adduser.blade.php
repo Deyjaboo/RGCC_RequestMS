@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="css/adduser.css">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-
+    <link rel="shortcut icon" href="images/logo.png"/>
     <title>Add User</title>
 
 <style>
@@ -194,7 +194,7 @@ body .input{
           <option value="BSCM">BSCM  Major in Management</option>
           <option value="BSBA">BSBA Financial Management </option>
           <option value="">BSBA Human Resource and Development and Management</option>
-   
+
       </select>
     </div>
 

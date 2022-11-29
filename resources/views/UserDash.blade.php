@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="{{('css/styles.css') }}" rel="stylesheet" type="text/css" >
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <link rel="shortcut icon" href="images/logo.png"/>
   <title>User</title>
 </head>
 

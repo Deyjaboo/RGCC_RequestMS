@@ -191,9 +191,9 @@ class DocrequestController extends Controller
     //     $response = $client->sms()->send(
     //         new \Vonage\SMS\Message\SMS("639389214119", "RGCC", 'Your document is ready for release!')
     //     );
-        
+
     //     $message = $response->current();
-        
+
     //     if ($message->getStatus() == 0) {
     //         echo "The message was sent successfully\n";
     //     } else {
