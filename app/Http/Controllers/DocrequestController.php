@@ -11,18 +11,13 @@ use Carbon\Carbon;
 class DocrequestController extends Controller
 {
     function store(Request $request){
-        // $request->validate([
-        //     'Hon_Dismissal' => ['required_without_all: SO, Diploma,TOR,Form137,GoodMoral'],
-        //     'SO' => ['required_without_all: Hon_Dismissal, Diploma,TOR,Form137,GoodMoral'],
-        //     'Diploma' => ['required_without_all: Hon_Dismissal, SO,TOR,Form137,GoodMoral'],
-        //     'TOR' => ['required_without_all: Hon_Dismissal, SO,Diploma,Form137,GoodMoral'],
-        //     'Form137' => ['required_without_all: Hon_Dismissal, SO,Diploma,TOR,GoodMoral'],
-        //     'GoodMoral' => ['required_without_all: Hon_Dismissal, SO,Diploma,TOR,Form137'],
-        // ]);
+     
         if($request->input('Hon_Dismissal') != null or $request->input('SO') != null or $request->input('Diploma') != null or $request->input('TOR') != null or $request->input('Form137') != null or $request->input('GoodMoral') != null or
          $request->input('UnitEarned') != null or $request->input('Graduation') != null or $request->input('GWA') != null or $request->input('Grades') != null or
-         $request->input('auth_Transcript') != null or $request->input('auth_SO') != null or $request->input('auth_Diploma') != null){
-        //or $request->input('Enrollment') != null or $request->input('Employment') != null or $request->input('License_Exam') != null){
+         $request->input('auth_Transcript') != null or $request->input('auth_SO') != null or $request->input('auth_Diploma') != null) 
+         {
+
+        if($request->input('Enroll') != null or $request->input('License_Exam') != null or $request->input('Employ') != null or $request->input('Others') != null){
 
         $data = new Docrequest();
         $data->stud_id = auth()->user()->student_id;
@@ -154,8 +149,11 @@ class DocrequestController extends Controller
 
         return redirect('UserReq')->with('message','Request Sent!');
     }else{
-        return redirect('UserReq')->with('message1','Please Fill your Request Form!');
+        return redirect('UserReq')->with('message1','Please specify your purpose!');
+       
     }
+    }
+    return redirect('UserReq')->with('message1','Please Fill your Request Form correctly!');
     }
 
     function new_req(){
@@ -200,5 +198,21 @@ class DocrequestController extends Controller
     //         echo "The message failed with status: " . $message->getStatus() . "\n";
     //     }
     // }
+
+    // public function destroy($id) {
+    //     $item = Docrequest::findOrFail($id);
+    //     $item->delete();
+    //     DB::delete('delete from docrequest where id = ?',[$id]);
+    //     return redirect('myitems');
+    //     return redirect('UserDash')->with('message','Request deleted successfully!');
+    // }
+    
+    public function destroy($id)
+    {
+     $del = Docrequest::find($id);
+     $del->delete();
+    // Docrequest::where('id', $id)->first()->delete();
+    return redirect('UserDash')->with('message','Request deleted successfully!');
+    }
 
 }

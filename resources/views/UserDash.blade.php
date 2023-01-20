@@ -7,6 +7,23 @@
   <link href="{{('css/styles.css') }}" rel="stylesheet" type="text/css" >
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <link rel="shortcut icon" href="images/logo.png"/>
+
+<!-- Modal-->
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ <!-- Modal-->
+   <!-- Button-->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,400,500,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+ <!-- Button-->
+
+  <!-- table-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" type="text/css">
+ <!-- table-->
   <title>User</title>
 </head>
 
@@ -16,7 +33,7 @@
   max-width: 100%;
   width: 80%;
   height: 100%;
-  
+
 }
 
 
@@ -43,7 +60,7 @@ body {
   height: 100vh;
   font-family: "Roboto", sans-serif;
   background: #e6ecff;
-  
+
 }
 .container {
   max-width: 1000px;
@@ -65,7 +82,7 @@ body {
     justify-content: space-between;
     padding: 15px 5%;
     align-items: center;
-  
+
 
 }
 .navbar-container {
@@ -108,7 +125,7 @@ body {
   border-radius: 5px;
   font-size: 18px;
   /* color:#b30000; */
-  color:white; 
+  color:white;
   font-family: Helvetica;
 }
 
@@ -295,7 +312,7 @@ table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
-  
+
 }
 
 td, th {
@@ -317,6 +334,7 @@ td, th {
         border-color: #FFFFFF;
         box-shadow: 0 0 8px 3px #B8B8B8;
     }
+    
 </style>
 <body>
 
@@ -356,6 +374,7 @@ td, th {
 <div class="column">
 
     <div class="wrapper">
+
       <div class="form_container">
 
       <div class="row">
@@ -363,7 +382,7 @@ td, th {
 
         <form name="form">
         <img src="images\icon.png" class="main-profile-img" />
-        
+
                           <div class="mt-3">
                           <h4>{{Auth::user()->First_Name}} {{Auth::user()->Middle_Name[0]}}. {{Auth::user()->Last_Name}} {{Auth::user()->suffix}}</h4>
                             <p class="text-muted font-size-sm">ID: <b>{{Auth::user()->student_id}}</b></p>
@@ -426,17 +445,24 @@ td, th {
 
 
 <div class="wrapper">
+
  <div class="form_container">
+      @if(session()->has('message'))
+            <div class="alert alert-danger">
+                {{ session()->get('message') }}
+            </div>
+        @endif
    <form name="form">
     <div class="heading">
   </div>
   <br>
 
-  <div class="card-body">
-                                <table id="datatablesSimple" class="TableData">
+  <div style="overflow-x:auto;">
+
+   <table id="example" class="display"  width="100%">
                                     <thead>
                                         <tr>
-                                            <th>Request ID</th>
+                                            <!-- <th>Request ID</th> -->
                                             <th>Student ID</th>
                                             <th>Name</th>
                                             <th>Mobile Number</th>
@@ -445,33 +471,22 @@ td, th {
                                             <th>Requested Documnet</th>
                                             <th>Purpose</th>
                                             <th>Status</th>
+                                            <th>Delete_Data</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                        <th>Request ID</th>
-                                            <th>Student ID</th>
-                                            <th>Name</th>
-                                            <th>Mobile Number</th>
-                                            <th>Course</th>
-                                            <th>Date</th>
-                                            <th>Requested Documnet</th>
-                                            <th>Purpose</th>
-                                            <th>Status</th>
-                                        </tr>
-                                    </tfoot>
+                                   
                                     <tbody>
-                                    
+
                                     @foreach($doc as $doc)
                                         <tr>
-                                            <td>{{$doc->id}}</td>
+                                            <!-- <td>{{$doc->id}}</td> -->
                                             <td>{{$doc->stud_id}}</td>
                                             <td>{{$doc->Name}}</td>
                                             <td>{{$doc->cp}}</td>
                                             <td>{{$doc->Course}}</td>
                                             <td>{{$doc->date}}</td>
-                                            <td>{{$doc->HonDismissal}} 
-                                           
+                                            <td>{{$doc->HonDismissal}}
+
                                             @if ($doc->Special_Order != " ")
                                                 @if ($doc->HonDismissal != " ")
                                                 ,{{$doc->Special_Order}}
@@ -579,10 +594,18 @@ td, th {
                                                 @endif
                                             @else
                                             @endif
-                                            
-                                            </td> 
+
+                                            </td>
                                             <td>{{$doc->Purpose}}</td>
                                             <td>{{$doc->Status}}</td>
+                                            @if ($doc->Status == "New")
+                                            <td>
+                                              <button type="button" class="btn btn-danger"  id="deletebtn" data-toggle="modal" data-target="#Delete{{$doc->id}}"><i class='bx bx-trash'></i></button>
+                                              @include('modal.DeleteRequest')
+                                            </td>
+                                            @else
+                                            <td style="color:#E32421">This document is already processed!</td>
+                                            @endif
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -590,6 +613,53 @@ td, th {
                             </div>
 
 
+<!-- Delete Modal HTML -->
+<!-- <div id="deleteModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<form id="delete_modal_Form" method="POST">
+				{{ csrf_field() }}
+            	{{ method_field('DELETE') }}
+					<div class="modal-header">
+						<h4 class="modal-title">Warning</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					</div>
+					<div class="modal-body">
+					<input type="hidden" id="delete_youth_id">
+						<p>Are you sure you want to delete your request?</p>
+						<p class="text-warning"><small>This action cannot be undone.</small></p>
+					</div>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-primary" data-dismiss="modal" value="Cancel">
+						<input type="submit" class="btn btn-danger" value="Delete">
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div> -->
+<!-- Delete Modal HTML -->
+<style>
+    #del{
+        color: red;
+    }
+</style>
+
+<!-- <script>
+              $(document).ready(function(){
+
+                  $('.TableData').on('click', '#deletebtn', function(){
+                    $tr = $(this).closest('tr');
+                      var data = $tr.children("td").map(function(){
+                          return $(this).text();
+                      }).get();
+                      $('#delete_youth_id').val(data[0]);
+                      $('#delete_modal_Form').attr('action', 'request-delete/'+data[0]);
+                      $('#deleteModal').modal('show');
+                  });
+              });
+        </script> -->
   </form>
  </div>
 </div>
@@ -618,8 +688,20 @@ navbarMenu.addEventListener("click", toggleNavbarVisibility);
 
 
 
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>  <!-- gride line table-->
-        <script src="js/datatables-simple-demo.js"></script>
+     <!-- table -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+<!-- table -->
+
 </body>
 
+<script>
+  //table script pagination
+$(document).ready(function () {
+    $('#example').DataTable({
+        pagingType: 'full_numbers',
+    });
+});
+</script>
 </html>

@@ -4,26 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!----======== CSS ======== -->
     <link rel="stylesheet" href="css/dashboard.css">
-   
-    <link rel="stylesheet" href="css/styles.css"> 
+
+    <link rel="stylesheet" href="css/styles.css">
 
 
    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
+
 
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,400,500,600" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="images/logo.png"/>
+     <!-- table-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" type="text/css">
+ <!-- table-->
     <title>New Request</title>
 </head>
+<style>
+    table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
 
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
 <body>
     <nav class="sidebar close">
         <header>
@@ -50,7 +69,7 @@
                         <a href="dashboard"method="GET">
                             <i class='bx bx-home-alt icon' ></i>
                             <span class="text nav-text">Dashboard</span>
-                        
+
                         </a>
                     </li>
 
@@ -60,7 +79,7 @@
                             <i class='bx bx-user-plus icon'></i>
                             <span class="text nav-text">Add User</span>
                         </a>
-                    
+
                     </li>
 
                      <li class="nav-link">
@@ -68,26 +87,26 @@
                         <i class='bx bxs-file-plus icon'></i>
                             <span class="text nav-text">New Request</span>
                         </a>
-                    </li> 
+                    </li>
 
                     <li class="nav-link">
                         <a href="Claimed"method="GET">
                         <i class='bx bx-task icon'></i>
                             <span class="text nav-text">Claimed</span>
                         </a>
-                    </li> 
+                    </li>
 
                     <li class="nav-link">
                         <a href="Unclaimed">
                         <i class='bx bxs-file icon'></i>
                             <span class="text nav-text">Unclaimed </span>
                         </a>
-                    </li> 
+                    </li>
 
                     <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
-                      
+
                     <li class="nav-link">
                     <a href="route('logout')"
                                     onclick="event.preventDefault();
@@ -96,11 +115,11 @@
                         <span class="text nav-text">Logout</span>
                     </a>
                      </li>
-                     
+
                 </form>
                </ul>
             </div>
-        </div>      
+        </div>
     </nav>
 
 <section id="home">
@@ -110,13 +129,13 @@
 
 
     </div>
-        </div>  
+        </div>
 
 </section>
     <section class="home">
          <div class="text">New Request</div>
         <!-- <div class="row">
-       
+
         <div class="main-section">
         <div class="columns">
 		<div class="dashbord">
@@ -159,15 +178,16 @@
       <br>
 
     <div class="wrapper">
-        
+
  @if(session()->has('message'))
             <div class="alert alert-success">
                 {{ session()->get('message') }}
             </div>
         @endif
     <div class="form_container">
-                        <div class="card-body">
-                        <table id="datatablesSimple" class="TableData">
+                    <div style="overflow-x:auto;">
+
+                <table id="example" class="display"  width="100%">
                                     <thead>
                                         <tr>
                                             <th>Request ID</th>
@@ -182,22 +202,9 @@
                                             <th>Processes</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                        <th>Request ID</th>
-                                            <th>Student ID</th>
-                                            <th>Name</th>
-                                            <th>Mobile Number</th>
-                                            <th>Course</th>
-                                            <th>Date</th>
-                                            <th>Requested Documnet</th>
-                                            <th>Purpose</th>
-                                            <th>Status</th>
-                                            <th>Processes</th>
-                                        </tr>
-                                    </tfoot>
+                                  
                                     <tbody>
-                                    
+
                                     @foreach($data as $data)
                                         <tr>
                                             <td>{{$data->id}}</td>
@@ -206,8 +213,8 @@
                                             <td>{{$data->cp}}</td>
                                             <td>{{$data->Course}}</td>
                                             <td>{{$data->date}}</td>
-                                            <td>{{$data->HonDismissal}} 
-                                           
+                                            <td>{{$data->HonDismissal}}
+
                                             @if ($data->Special_Order != " ")
                                                 @if ($data->HonDismissal != " ")
                                                 ,{{$data->Special_Order}}
@@ -315,12 +322,14 @@
                                                 @endif
                                             @else
                                             @endif
-                                            
-                                            </td> 
+
+                                            </td>
                                             <td>{{$data->Purpose}}</td>
                                             <td>{{$data->Status}}</td>
                                             <td>
-                                                <a href="javascript:void(0)" class="btn btn-primary" id="editbtn"><i class='bx bx-message-check' data-toggle="tooltip" title="Edit"></i></a>
+                                                <!-- <a href="javascript:void(0)" class="btn btn-primary" id="editbtn"><i class='bx bx-message-check' data-toggle="tooltip" title="Edit"></i></a> -->
+                                                <button type="button" class="btn btn-primary"  id="deletebtn" data-toggle="modal" data-target="#NewRequest{{$data->id}}"><i class='bx bx-message-check' data-toggle="tooltip" title="Edit"></i></button>
+                                                @include('modal.NewRequest')
                                                 <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"><i class='bx bx-edit-alt'></i></button> -->
                                                 <!-- <button type="button" class="btn btn-success"><i class='bx bx-receipt'></i></button> -->
                                             </td>
@@ -331,7 +340,7 @@
 
     </section>
 
-    
+
 <!-- Modal start -->
  <div id="SendMe" class="modal fade">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -356,7 +365,7 @@
       </form>
     </div>
   </div>
-</div> 
+</div>
 <!-- Modal end -->
 
 <script>
@@ -408,11 +417,26 @@ searchBtn.addEventListener("click" , () =>{
 
     </script>
 
-        <script src="js/scripts.js"></script>
+        <!-- <script src="js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>   grap link
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>  <!-- gride line table-->
-        <script src="js/datatables-simple-demo.js"></script>
-      
+        <script src="js/datatables-simple-demo.js"></script> -->
+
+        <!-- table -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+<!-- table -->
+
+
 </body>
+<script>
+  //table script pagination
+$(document).ready(function () {
+    $('#example').DataTable({
+        pagingType: 'full_numbers',
+    });
+});
+</script>
 </html>

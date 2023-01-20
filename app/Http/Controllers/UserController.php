@@ -87,6 +87,8 @@ class UserController extends Controller
 
         $cp_num = DB::table('docrequests')->where('id', $id)->value('cp');
 
+        // $basic  = new \Vonage\Client\Credentials\Basic("1efc1891", "zcER9mJiXf9ejx7V");
+        // $client = new \Vonage\Client($basic);
 
         $basic  = new \Vonage\Client\Credentials\Basic("c49a47a9", "B13aOtkqX65resqo");
         $client = new \Vonage\Client($basic);

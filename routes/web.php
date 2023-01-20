@@ -64,6 +64,8 @@ Route::middleware('auth','isAdmin')->group(function () {
  
     Route::get('sms',[DocrequestController::class ,'sms_send']);
 
+ 
+
 });
 
 //  Route::get('/dashboard', function () {
@@ -71,7 +73,9 @@ Route::middleware('auth','isAdmin')->group(function () {
 //  })->middleware(['auth','isAdmin'])->name('dashboard');
 
    Route::middleware(['auth'])->group(function(){
-
+ //delete
+    //  Route::delete('request-delete/{id}', [DocrequestController::class ,'destroy']);
+    Route::get('delete/{id}', [DocrequestController::class ,'destroy']);
     //  Route::get('/UserDash', function () {
     //    return view('UserDash');
     // });
@@ -88,8 +92,11 @@ Route::middleware('auth','isAdmin')->group(function () {
      Route::post('EditStudent/{id}',[UserController::class ,'update_student'])->name('EditStudent');
      Route::post('SendReady/{id}',[UserController::class ,'send_ready'])->name('SendReady');
      Route::post('claim/{id}',[UserController::class ,'claimed'])->name('claim');
+
+   
   });
 
 
 
+ 
 require __DIR__.'/auth.php';

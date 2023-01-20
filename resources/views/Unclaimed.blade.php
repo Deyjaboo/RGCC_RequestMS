@@ -19,9 +19,32 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="images/logo.png"/>
+
+     <!-- table-->
+ 
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" type="text/css">
+ <!-- table-->
     <title>Unclaimed Process Document</title>
 </head>
+<style>
+    
 
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
 <body>
     <nav class="sidebar close">
         <header>
@@ -164,8 +187,9 @@
             </div>
         @endif
     <div class="form_container">
-                        <div class="card-body">
-                                <table id="datatablesSimple" class="TableData">
+    <div style="overflow-x:auto;">
+
+<table id="example" class="display"  width="100%">
                                     <thead>
                                         <tr>
                                             <th>Request ID</th>
@@ -193,33 +217,7 @@
                                             <th>Processes</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                        <th>Request ID</th>
-                                            <th>Student ID</th>
-                                            <th>Name</th>
-                                            <th>Mobile Number</th>
-                                            <th>Course</th>
-                                            <th>Date</th>
-                                            <th>Requested Documnet</th>
-                                            <!-- <th>Honorable Dismissal</th>
-                                            <th>Special Order</th>
-                                            <th>Diploma</th>
-                                            <th>Transcript Of Record</th>
-                                            <th>Form137</th>
-                                            <th>Good Moral</th>
-                                            <th>Unit Earned</th>
-                                            <th>Graduation</th>
-                                            <th>GWA</th>
-                                            <th>Grades</th>
-                                            <th>Authenticate Transcript</th>
-                                            <th>Authenticate Special_Order</th>
-                                            <th>Authenticate Diploma</th> -->
-                                            <th>Purpose</th>
-                                            <th>Status</th>
-                                            <th>Processes</th>
-                                        </tr>
-                                    </tfoot>
+                                    
                                     <tbody>
                                     
                                     @foreach($data as $data)
@@ -358,7 +356,9 @@
                                             <td>{{$data->Purpose}}</td>
                                             <td>{{$data->Status}}</td>
                                             <td>
-                                                <a href="javascript:void(0)" class="btn btn-primary" id="editbtn"><i class='bx bx-message-check' data-toggle="tooltip" title="Edit"></i></a>
+                                                <!-- <a href="javascript:void(0)" class="btn btn-primary" id="editbtn"><i class='bx bx-message-check' data-toggle="tooltip" title="Edit"></i></a> -->
+                                                <button type="button" class="btn btn-primary"  id="deletebtn" data-toggle="modal" data-target="#Unclaimed{{$data->id}}"><i class='bx bx-message-check' data-toggle="tooltip" title="Edit"></i></button>
+                                                @include('modal.Unclaimed')
                                                 <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"><i class='bx bx-edit-alt'></i></button> -->
                                                 <!-- <button type="button" class="btn btn-success"><i class='bx bx-receipt'></i></button> -->
                                             </td>
@@ -443,11 +443,21 @@ searchBtn.addEventListener("click" , () =>{
 
     </script>
 
-        <script src="js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>   grap link
-        <script src="assets/demo/chart-bar-demo.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>  <!-- gride line table-->
-        <script src="js/datatables-simple-demo.js"></script>
       
 </body>
+
+<!-- table -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+<!-- table -->
+<script>
+  //table script pagination
+$(document).ready(function () {
+    $('#example').DataTable({
+        pagingType: 'full_numbers',
+    });
+});
+</script>
+
 </html>
